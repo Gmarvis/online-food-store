@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { FoodContext } from "../component/context";
-// import { Nav } from "../component/nav";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Product = ()=>{
-    return (
-        <div>
-        <div className="main h-screen">
-            <h1 className="main-text text-3xl text-center text-yellow-700">Food Details</h1>
-            <h2>Selected Food Iterms</h2>
-        </div>
-        </div>
-    )
+
+export const Product = () => {
+  const [foodDetail, setFoodDetail] = useState({})
+  const { foodItems } = useContext(FoodContext)
+  const navigate = useNavigate()
+  // console.log(foodItems)
+  const params = useParams()
+  // console.log(params)
+
+  const handlePurcase=()=>{
+    navigate('/login')
+  }
+
+  useEffect(() => {
+    const [selectedFood] = foodItems.filter((food) => food.name === params.name)
+    setFoodDetail(selectedFood)
+    console.log(foodDetail)
+  })
+  console.log(foodDetail.image)
+
+  return (
+    <div className="pDetail border mt-5 border-yellow-700 p-2 w-fit m-auto">
+      <h1 className="hd text-xl text-yellow-700">Food Details</h1>
+      <div>
+        <img className="fdetails w-80 " src={foodDetail.image} alt={foodDetail.name} />
+        <h1>{foodDetail.name}</h1>
+        <p>{foodDetail.description}</p>
+        <span>${foodDetail.price}</span>
+        <br></br>
+        <button className="btn border border-yellow-700 rounded p-1 text-yellow-700 bg-white" onClick={handlePurcase}>Purchase</button>
+      </div>
+    </div>
+  );
 }

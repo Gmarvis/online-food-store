@@ -1,11 +1,13 @@
 import React from "react";
+import { useFormik } from "formik";
 
-export const Checkout = () =>{
-    return (
-        <>
-        <div className="checkout mx-20 h-screen">
-            <h1 className="header text-center text-red-700">Checkout list</h1>
-        </div>
-        </>
-    )
-}
+export const Checkout = () => {
+  return (
+    <div>
+      <form>
+        <label>name on card</label>
+        <input></input>
+      </form>
+    </div>
+  )
+};

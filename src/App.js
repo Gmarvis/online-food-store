@@ -7,11 +7,13 @@ import { Product } from "./pages/products";
 import { Nav } from "./component/nav";
 import { useState } from "react";
 import { FoodContext } from "./component/context";
+import { Login } from "./pages/login";
+import { Success } from "./pages/success-purchase";
+// import { useParams } from "react-router-dom";
 
-const getimage = (name)=> {
-  return `assets/${name}.png`
-  
-}
+const getimage = (name) => {
+  return `/assets/${name}.png`;
+};
 
 function App() {
   const [foodItems, setFoodItems] = useState([
@@ -41,7 +43,7 @@ function App() {
     },
     {
       id: 3,
-      name: "Hamburgerw-2/4 sliced",
+      name: "burger sliced",
       price: 600,
       image: getimage("iterm12"),
       description:
@@ -121,9 +123,11 @@ function App() {
       <FoodContext.Provider value={{ foodItems, setFoodItems }}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/products" element={<Product />} />
+          <Route path="/products/:name" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/Success" element={<Success />} />
         </Routes>
       </FoodContext.Provider>
     </div>
