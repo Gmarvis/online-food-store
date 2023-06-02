@@ -8,21 +8,26 @@ import { useNavigate } from "react-router-dom";
 export const Product = () => {
   const [foodDetail, setFoodDetail] = useState({})
   const { foodItems } = useContext(FoodContext)
+
+
   const navigate = useNavigate()
-  // console.log(foodItems)
   const params = useParams()
-  // console.log(params)
+  console.log( "THis is our", params.name)
 
   const handlePurcase=()=>{
-    navigate('/login')
+    // navigate('/login')
+    if(!localStorage.userData){
+      navigate(`/login/${params.name}`)
+    }
+    else navigate(`/checkout/${params.name}`)
   }
 
   useEffect(() => {
     const [selectedFood] = foodItems.filter((food) => food.name === params.name)
     setFoodDetail(selectedFood)
-    console.log(foodDetail)
+    // console.log(foodDetail)
   })
-  console.log(foodDetail.image)
+  // console.log("$",foodDetail.price)
 
   return (
     <div className="pDetail border mt-5 border-yellow-700 p-2 w-fit m-auto">
