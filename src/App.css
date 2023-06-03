@@ -43,10 +43,6 @@ input {
     
 }
 
-.ppc {
-
-}
-
 .mp {
     @apply text-center text-yellow-600;
 
@@ -67,8 +63,10 @@ input {
 }
 
 .paymentSection {
-
-    @apply flex border border-yellow-700 w-4/5 m-auto justify-between p-2 mt-5
+    @apply flex border border-yellow-700 w-4/5 m-auto justify-between p-2 mt-5;
+    height: 90vh;
+    margin-bottom: 20px;
+    
 }
 
 .paymentSection img {
@@ -94,6 +92,68 @@ input {
     font-size: 90px;
 
 }
+
+/* dashboard styles */
+.admin-dashboard {
+    @apply flex;
+}
+
+.avatar {
+    @apply mx-auto;
+    border-radius: 50%;
+    width: 150px;
+}
+
+.profile-section {
+    @apply flex-1 p-5 text-center border ; 
+    /* background-color: red; */
+    width: 20%;
+    height: 100vh;
+}
+
+.dashboard {
+    @apply bg-white;
+    width: 80%;
+}
+
+.textHeader {
+    font-size: 30px;
+}
+
+.dashHeader {
+    @apply text-center ;
+}
+
+.profileBtn {
+    @apply border border-yellow-700 mt-5 w-full;
+}
+
+.updateForm {
+    @apply flex-1 gap-4;
+}
+
+
+.updateForm input {
+    @apply mt-2;
+    width: 100%;
+}
+
+.addProductForm {
+    @apply border flex flex-col w-fit justify-center gap-5 p-2;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addBtn {
+    @apply border border-white m-2 p-1 text-white;
+}
+
+.addProductForm input {
+    @apply rounded
+}
+
+/* end of dashboard style */
+
 
 @media screen and (max-width:800px) {
     .foodItem {
@@ -134,7 +194,7 @@ input {
     }
 
     .paymentSection {
-        height: 100vh;
+        height: 90vh;
     }
 }
 

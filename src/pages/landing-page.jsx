@@ -21,7 +21,7 @@ export const LandingPage = () => {
             <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
             <span>${foodItem.price}</span>
             <div>
-              <button className="btn border border-yellow-700 text-white p-1 bg-yellow-700 hover:text-yellow-700 hover:bg-white" onClick={handDitails}>Detials</button>
+              <button className="btn border border-yellow-700 text-yellow-700 p-1  hover:text-yellow-700 hover:bg-white" onClick={handDitails}>Detials</button>
             </div>
           </div>
         )
