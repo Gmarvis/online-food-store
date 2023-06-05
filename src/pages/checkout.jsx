@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -16,26 +17,18 @@ export const Checkout = () => {
   const { foodItems } = useContext(FoodContext)
   const params = useParams()
 
-  // const newParams = params.slice(params[0])
-
-
-
   useEffect(()=>{
-          const [selectedFood] = foodItems.filter((food) => food.name === params.name)
-      setPurchaseFood(selectedFood)
+    const [selectedFood] = foodItems.filter((food) => food.name === params.name)
+    setPurchaseFood(selectedFood)
   })
-
-
-
+ 
 
   const handleSubmit = () => {
     navigate('/success')
   }
 
   return (
-
     <div className="paymentSection">
-
       <div className="formMagin">
         <h1 className="mp">Make Payment</h1>
         <PaymentInputsContainer>

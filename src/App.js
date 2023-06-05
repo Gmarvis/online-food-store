@@ -1,11 +1,11 @@
 import "./App.css";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { LandingPage } from "./pages/landing-page";
 import { Admin } from "./pages/admin";
 import { Checkout } from "./pages/checkout";
 import { Product } from "./pages/products";
 import { Nav } from "./component/nav";
-import { useEffect, useState } from "react";
 import { FoodContext } from "./component/context";
 import { Login } from "./pages/login";
 import { Success } from "./pages/success-purchase";
@@ -15,12 +15,12 @@ import { Success } from "./pages/success-purchase";
 // };
 
 function App() {
-  const [foodItems, setFoodItems] = useState([]);
+  const [foodItems, setFoodItems] = useState(JSON.parse(localStorage.getItem("foodItems")));
 
-  useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem("foodItems")) 
-    setFoodItems(localData)
-  }, []);
+
+    // const localData = JSON.parse(localStorage.getItem("foodItems")) || [];
+    // setFoodItems([...localData]);
+ console.log(FoodContext.Provider)
 
   return (
     <div className="main-section  h-screen">

@@ -4,6 +4,7 @@ import { GiCancel } from "react-icons/gi";
 // import { Nav } from "../component/nav"
 
 export const Admin = () => {
+  const [localData, setLocalData] = useState(JSON.parse(localStorage.getItem("foodItems")));
   const [showForm, setShowForm] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
   const [productData, setProductData] = useState({
@@ -53,15 +54,40 @@ export const Admin = () => {
   //   reader.readAsDataURL(file)
   // }
 
+
+  // handle delete
+
+  const handDelete = (name)=>{
+    const removeIterm = localData.filter((iterm)=>{
+      return iterm.name !== name
+    })
+    setProductData(removeIterm)
+    console.log(localData)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const localData = JSON.parse(localStorage.getItem("foodItems")) || [];
 
-    localStorage.setItem('foodItems', JSON.stringify([...localData, productData]))
+    localStorage.setItem(
+      "foodItems",
+      JSON.stringify([...localData, productData])
+    );
 
     // console.log(productData);
     // conver2base64()
   };
+
+
+  /*Display products*/
+// useEffect(()=>{
+//   const local = JSON.parse(localStorage.getItem("foodItems"));
+//   setLocalData(local);
+// },[])
+
+
+  // const localData = JSON.parse(localStorage.getItem("foodItems"))
+  // console.log("local data",localData)
 
   return (
     <div className="admin-dashboard">
@@ -107,14 +133,17 @@ export const Admin = () => {
       </div>
 
       <div className="dashboard">
-        <div className="dashHeader bg-blue-400">
-          <h1 className="textHeader ">Dashboard</h1>
-          <button
-            className="addBtn"
-            onClick={() => setShowAddForm((prev) => !prev)}
-          >
-            Add Product
-          </button>
+        <div className="dashHeader">
+          <div className="flex justify-between pt-7">
+            <h1 className="textHeader text-yellow-700">Dashboard</h1>
+
+            <button
+              className="addBtn"
+              onClick={() => setShowAddForm((prev) => !prev)}
+            >
+              Add Product
+            </button>
+          </div>
         </div>
 
         {showAddForm && (
@@ -156,12 +185,44 @@ export const Admin = () => {
             >
               Product details...
             </textarea>
+            <div className="fBtn flex justify-between">
+              <button className="addBt" type="submit">
+                Add
+              </button>
 
-            <button className="addBt" type="submit">
-              Add
-            </button>
+              <button
+                className="addBt"
+                onClick={() => setShowAddForm((prev) => !prev)}
+              >
+                cancel
+              </button>
+            </div>
           </form>
         )}
+ <>
+    <div className="foodCards ">
+      {localData?.map((foodItem) => {
+
+        // handle click navigation to product detail page.
+        const handDitails = () => {
+          // navigate(`./products/${foodItem.name}`)
+
+        }
+        return (
+          <div key={foodItem.name} className="foodItem border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"  >
+            <img src={foodItem.image} alt={foodItem.name} className="card h-24 items-center mx-auto" />
+            <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
+            <span>${foodItem.price}</span>
+            <div className="flex  justify-between">
+              <button className="cardBtn" onClick={handDitails}>Edit</button>
+              <button className="cardBtn" onClick={handDelete}>Delete</button>
+
+            </div>
+          </div>
+        )
+      })}
+    </div>
+    </>
       </div>
     </div>
   );

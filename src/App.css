@@ -25,7 +25,7 @@
 }
 
 .foodCards {
-    @apply flex flex-wrap justify-between gap-5 mt-3;
+    @apply flex flex-wrap justify-center gap-5 mt-3;
     margin: 20px 10px;
 }
 
@@ -139,11 +139,17 @@ input {
 }
 
 .textHeader {
-    font-size: 30px;
+    font-size: 20px;
+    color: #fff
 }
 
 .dashHeader {
     @apply text-center ;
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.616), rgba(10, 9, 10, 0.918)), url(../public/assets/bg2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 20vh;
+
 }
 
 .profileBtn {
@@ -170,7 +176,13 @@ input {
 
 .addBtn {
     @apply m-2 p-1 text-white;
-    border: 0px 2px 1px solid white;
+    border: 1px solid white;
+    font-size: 12px;
+}
+
+.cardBtn {
+    @apply border p-1 border-yellow-700;
+    font-size: 12px;
 }
 
 .addBt {
