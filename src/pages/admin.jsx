@@ -5,7 +5,63 @@ import { GiCancel } from "react-icons/gi";
 
 export const Admin = () => {
   const [showForm, setShowForm] = useState(false);
-	const [showAddForm, setShowAddForm] = useState(false)
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [productData, setProductData] = useState({
+    name: "",
+    price: "",
+    image: "",
+    detials: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setProductData((prevProductData) => ({
+      ...prevProductData,
+      [name]: value,
+    }));
+  };
+
+  const conver2base64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const uploadImage = async (event) => {
+    const file = event.target.files[0];
+    const base64 = await conver2base64(file);
+    console.log(base64);
+
+    setProductData((prev) => ({ ...prev, image: base64 }));
+  };
+
+  // const conver2base64 = (e)=>{
+  //   const file = e.target.files[0];
+  //   const reader = new FileReader();
+
+  //   reader.onloadend = ()=>{
+  //     console.log(reader.result.toString());
+  //   };
+  //   reader.readAsDataURL(file)
+  // }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const localData = JSON.parse(localStorage.getItem("foodItems")) || [];
+
+    localStorage.setItem('foodItems', JSON.stringify([...localData, productData]))
+
+    // console.log(productData);
+    // conver2base64()
+  };
 
   return (
     <div className="admin-dashboard">
@@ -51,26 +107,63 @@ export const Admin = () => {
       </div>
 
       <div className="dashboard">
-				<div className="dashHeader bg-yellow-700">
-        <h1 className="textHeader ">Dashboard</h1>
-        <button className="addBtn" 
-				onClick={()=>setShowAddForm((prev)=>!prev)}>Add Product</button>
-				</div>
+        <div className="dashHeader bg-blue-400">
+          <h1 className="textHeader ">Dashboard</h1>
+          <button
+            className="addBtn"
+            onClick={() => setShowAddForm((prev) => !prev)}
+          >
+            Add Product
+          </button>
+        </div>
 
         {showAddForm && (
-          <form action="" className="addProductForm">
-            
-            <input type="text" placeholder="Product Name" />
-            <input type="number" placeholder="Price" />
+          <form action="" className="addProductForm" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={productData.name}
+              onChange={handleChange}
+              placeholder="Product Name"
+            />
 
-						<input type="file" value="" placeholder="Product Image" />
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={productData.price}
+              onChange={handleChange}
+              placeholder="Price"
+            />
 
-            <textarea name="detials" id="decription" cols="60" rows="5">
-              asdfhasdf
+            <input
+              type="file"
+              id="image"
+              name="image"
+              className="fileupload"
+              onChange={(e) => uploadImage(e)}
+              placeholder="Product Image"
+            />
+
+            <textarea
+              name="detials"
+              id="details"
+              value={productData.detials}
+              onChange={handleChange}
+              cols="60"
+              rows="5"
+            >
+              Product details...
             </textarea>
+
+            <button className="addBt" type="submit">
+              Add
+            </button>
           </form>
         )}
       </div>
     </div>
   );
 };
+// onChange={e => conver2base64(e)}
