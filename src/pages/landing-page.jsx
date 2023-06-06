@@ -1,14 +1,19 @@
-// import React, { useContext } from "react";
-import { useContext } from "react";
+// import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../component/context";
 // import { FoodContext } from "./component/context";
 
 export const LandingPage = () => {
-  const localData = JSON.parse(localStorage.getItem("foodItems"));
-  const navigate = useNavigate();
+  const [localData, setLocalData] = useState()
   const { foodItems } = useContext(FoodContext);
-  console.log("foodItems", foodItems)
+ 
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    setLocalData(foodItems)
+  })
+ 
 
   return (
     <>

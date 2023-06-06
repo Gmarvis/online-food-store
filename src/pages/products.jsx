@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FoodContext } from "../component/context";
 
 export const Product = () => {
-  const [foodDetail, setFoodDetail] = useState({});
+  // const [foodDetail, setFoodDetail] = useState({});
+  const { foodItems } = useContext(FoodContext);
+  console.log("foodItems", foodItems);
 
   const navigate = useNavigate();
   const params = useParams();
-  console.log("THis is our", params.name);
+  // console.log("THis is our", params.name);
 
   const handlePurcase = () => {
     // navigate('/login')
@@ -17,22 +21,11 @@ export const Product = () => {
     } else navigate(`/checkout/${params.name}`);
   };
 
-  // useEffect(() => {
-  //   const localData = JSON.parse(localStorage.getItem("foodItems"))
-  //   const [selectedFood] = localData.filter((food) => food.name === params.name)
-  //   setFoodDetail(selectedFood)
-  // })
-  // console.log(foodDetail)
-  // console.log("$",foodDetail.price)
+const [foodDetail] = foodItems.filter((food) => food.name === params.name);
+console.log(foodDetail)
 
-  useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem("foodItems"));
-    const [selectedFood] = localData.filter((food) => food.name === params.name)
-    setFoodDetail(selectedFood)
-  },[]);
 
-  console.log(foodDetail.detials
-    )
+  console.log("foodDetail ", foodDetail);
 
   return (
     <div className="pDetail border mt-5 border-yellow-700 p-2 w-fit m-auto">
