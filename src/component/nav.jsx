@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Nav = ()=>{
 
     const handleLogout=()=>{
-        localStorage.clear()
+        localStorage.clear("userData")
     }
 
 

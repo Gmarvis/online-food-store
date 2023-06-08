@@ -1,19 +1,16 @@
-// import { useState } from "react";
-import { useContext, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FoodContext } from "../component/context";
+import { useFooditerms } from "../component/context";
 // import { FoodContext } from "./component/context";
 
 export const LandingPage = () => {
-  const [localData, setLocalData] = useState()
-  const { foodItems } = useContext(FoodContext);
- 
+  const [product, setProduct] = useState()
+  const { value } = useFooditerms();
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    setLocalData(foodItems)
-  })
- 
+  useEffect(() => {
+    setProduct(value);
+  },[]);
 
   return (
     <>
@@ -22,7 +19,7 @@ export const LandingPage = () => {
       </div>
 
       <div className="foodCards ">
-        {localData?.map((foodItem) => {
+        {product?.map((foodItem) => {
           // handle click navigation to product detail page.
           const handDitails = () => {
             navigate(`./products/${foodItem.name}`);

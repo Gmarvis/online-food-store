@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
-// import { Nav } from "../component/nav"
+import { FoodContext } from "../component/context";
 
 export const Admin = () => {
-  const [localData, setLocalData] = useState(JSON.parse(localStorage.getItem("foodItems")));
+  const { value, setValue } = useContext(FoodContext)
+  // const [product, setProduct] = useState()
+
   const [showForm, setShowForm] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
   const [productData, setProductData] = useState({
@@ -44,50 +46,34 @@ export const Admin = () => {
     setProductData((prev) => ({ ...prev, image: base64 }));
   };
 
-  // const conver2base64 = (e)=>{
-  //   const file = e.target.files[0];
-  //   const reader = new FileReader();
-
-  //   reader.onloadend = ()=>{
-  //     console.log(reader.result.toString());
-  //   };
-  //   reader.readAsDataURL(file)
-  // }
-
-
-  // handle delete
-
-  const handDelete = (name)=>{
-    const removeIterm = localData.filter((iterm)=>{
-      return iterm.name !== name
-    })
-    setProductData(removeIterm)
-    console.log(localData)
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const localData = JSON.parse(localStorage.getItem("foodItems")) || [];
+    if (
+      !productData.name ||
+      !productData.price ||
+      !productData.image ||
+      !productData.detials
+    ) {
+      alert("inconplete form");
+      return;
+    }
 
-    localStorage.setItem(
-      "foodItems",
-      JSON.stringify([...localData, productData])
-    );
-
-    // console.log(productData);
-    // conver2base64()
+    setValue(productData);
+    setProductData({
+      name: "",
+      price: "",
+      image: "",
+      detials: "",
+    });
   };
 
-
-  /*Display products*/
-// useEffect(()=>{
-//   const local = JSON.parse(localStorage.getItem("foodItems"));
-//   setLocalData(local);
-// },[])
-
-
-  // const localData = JSON.parse(localStorage.getItem("foodItems"))
-  // console.log("local data",localData)
+  // handle delete iterms
+  const handleDelete = (name) => {
+    // const removeIterm = value.filter((iterm) => {
+    //   return iterm.name !== name;
+    // });
+    // value = removeIterm;
+  };
 
   return (
     <div className="admin-dashboard">
@@ -199,30 +185,36 @@ export const Admin = () => {
             </div>
           </form>
         )}
- <>
-    <div className="foodCards ">
-      {localData?.map((foodItem) => {
+        <>
+          <div className="foodCards ">
+            {value?.map((foodItem) => {
+              // handle click navigation to product detail page.
 
-        // handle click navigation to product detail page.
-        const handDitails = () => {
-          // navigate(`./products/${foodItem.name}`)
-
-        }
-        return (
-          <div key={foodItem.name} className="foodItem border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"  >
-            <img src={foodItem.image} alt={foodItem.name} className="card h-24 items-center mx-auto" />
-            <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
-            <span>${foodItem.price}</span>
-            <div className="flex  justify-between">
-              <button className="cardBtn" onClick={handDitails}>Edit</button>
-              <button className="cardBtn" onClick={handDelete}>Delete</button>
-
-            </div>
+              return (
+                <div
+                  key={foodItem.name}
+                  className="foodItem border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"
+                >
+                  <img
+                    src={foodItem.image}
+                    alt={foodItem.name}
+                    className="card h-24 items-center mx-auto"
+                  />
+                  <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
+                  <span>${foodItem.price}</span>
+                  <div className="flex  justify-start">
+                    <button
+                      className="cardBtn  bg-yellow-800 text-white"
+                      onClick={handleDelete}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        )
-      })}
-    </div>
-    </>
+        </>
       </div>
     </div>
   );

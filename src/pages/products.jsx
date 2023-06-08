@@ -3,12 +3,12 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FoodContext } from "../component/context";
+import { useFooditerms } from "../component/context";
 
 export const Product = () => {
   // const [foodDetail, setFoodDetail] = useState({});
-  const { foodItems } = useContext(FoodContext);
-  console.log("foodItems", foodItems);
+  const { value } = useFooditerms();
+  // console.log("foodItems", foodItems);
 
   const navigate = useNavigate();
   const params = useParams();
@@ -16,12 +16,12 @@ export const Product = () => {
 
   const handlePurcase = () => {
     // navigate('/login')
-    if (!localStorage.userData) {
+ 
       navigate(`/login/${params.name}`);
-    } else navigate(`/checkout/${params.name}`);
+  
   };
 
-const [foodDetail] = foodItems.filter((food) => food.name === params.name);
+const [foodDetail] = value.filter((food) => food.name === params.name);
 console.log(foodDetail)
 
 

@@ -6,7 +6,7 @@ import { Admin } from "./pages/admin";
 import { Checkout } from "./pages/checkout";
 import { Product } from "./pages/products";
 import { Nav } from "./component/nav";
-import { FoodContext } from "./component/context";
+import { FoodProvider, useLocalStorage } from "./component/context";
 import { Login } from "./pages/login";
 import { Success } from "./pages/success-purchase";
 
@@ -15,19 +15,17 @@ import { Success } from "./pages/success-purchase";
 // };
 
 function App() {
-  const [foodItems, setFoodItems] = useState(JSON.parse(localStorage.getItem("foodItems")));
+  const { value, setValue } = useLocalStorage("foodItems", []);
 
-
-    // const localData = JSON.parse(localStorage.getItem("foodItems")) || [];
-    // setFoodItems([...localData]);
- console.log(FoodContext.Provider)
+  // const localData = JSON.parse(localStorage.getItem("foodItems")) || [];
+  // setFoodItems([...localData]);
 
   return (
     <div className="main-section  h-screen">
       <div>
         <Nav />
       </div>
-      <FoodContext.Provider value={{ foodItems, setFoodItems }}>
+      <FoodProvider value={{ value, setValue }}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login/:name" element={<Login />} />
@@ -36,7 +34,7 @@ function App() {
           <Route path="/checkout/:name" element={<Checkout />} />
           <Route path="/success" element={<Success />} />
         </Routes>
-      </FoodContext.Provider>
+      </FoodProvider>
     </div>
   );
 }

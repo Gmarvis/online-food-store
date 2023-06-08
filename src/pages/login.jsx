@@ -22,7 +22,7 @@ export function Login() {
   return (
     <div className="container flex flex-col text-center md:w-96 mx-auto border-2 p-2 rounded h-80 justify-between my-32 border-yellow-700">
       <h1 className="header ">Personal Details</h1>
-      <p>create your acount</p>
+      <p>and location for delivery</p>
       <Formik
         // initial values with keys
         initialValues={{

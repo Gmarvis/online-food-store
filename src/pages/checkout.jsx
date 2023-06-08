@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { FoodContext } from "../component/context";
+import { useFooditerms } from "../component/context";
 import { useEffect } from "react";
 
 import { PaymentInputsContainer, usePaymentInputs } from "react-payment-inputs";
@@ -14,11 +14,12 @@ export const Checkout = () => {
     usePaymentInputs();
   const navigate = useNavigate();
   const [purchaseFood, setPurchaseFood] = useState({})
-  const { foodItems } = useContext(FoodContext)
+  const { value } = useFooditerms();
+  console.log("value",value)
   const params = useParams()
 
   useEffect(()=>{
-    const [selectedFood] = foodItems.filter((food) => food.name === params.name)
+    const [selectedFood] = value.filter((food) => food.name === params.name)
     setPurchaseFood(selectedFood)
   })
  
