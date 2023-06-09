@@ -1,7 +1,6 @@
 import {useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFooditerms } from "../component/context";
-// import { FoodContext } from "./component/context";
 
 export const LandingPage = () => {
   const [product, setProduct] = useState()

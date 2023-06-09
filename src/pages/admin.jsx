@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { FoodContext } from "../component/context";
+import { SignUp } from "../component/admin-component";
 
 export const Admin = () => {
-  const { value, setValue } = useContext(FoodContext)
+  const { value, setValue } = useContext(FoodContext);
   // const [product, setProduct] = useState()
 
   const [showForm, setShowForm] = useState(false);
@@ -15,6 +16,9 @@ export const Admin = () => {
     image: "",
     detials: "",
   });
+
+  // iterms id
+  // const generateId = Math.floor(Math.random()*10)
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,6 +50,19 @@ export const Admin = () => {
     setProductData((prev) => ({ ...prev, image: base64 }));
   };
 
+  const clearForm = (event) => {
+    const { image } = event.target;
+    console.clear();
+    console.log(event)
+    image.value = ""
+    setProductData({
+      name: "",
+      price: "",
+      image: "",
+      detials: "",
+    });
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (
@@ -58,22 +75,27 @@ export const Admin = () => {
       return;
     }
 
+    // handle delete
+
     setValue(productData);
-    setProductData({
-      name: "",
-      price: "",
-      image: "",
-      detials: "",
-    });
+    clearForm(event)
   };
 
   // handle delete iterms
   const handleDelete = (name) => {
-    // const removeIterm = value.filter((iterm) => {
-    //   return iterm.name !== name;
-    // });
-    // value = removeIterm;
+    const localData = JSON.parse(localStorage.getItem("foodItems"));
+
+    const update = localData?.filter((iterm) => {
+      return iterm.name !== name;
+    });
+
+    localStorage.setItem('foodItems', JSON.stringify(update))
+    setValue('')
   };
+
+  const adminData = JSON.parse(localStorage.getItem("adminData"))
+  console.clear()
+  console.log(adminData)
 
   return (
     <div className="admin-dashboard">
@@ -84,8 +106,8 @@ export const Admin = () => {
             alt=""
             className="avatar"
           />
-          <h2>Sam Gmarvis</h2>
-          <p>sgmarvis@gmail.com</p>
+          <h2>{adminData.username}</h2>
+          <p>{adminData.email}</p>
         </div>
         <button
           className="profileBtn"
@@ -205,7 +227,7 @@ export const Admin = () => {
                   <div className="flex  justify-start">
                     <button
                       className="cardBtn  bg-yellow-800 text-white"
-                      onClick={handleDelete}
+                      onClick={() => handleDelete(foodItem.name)}
                     >
                       Delete
                     </button>

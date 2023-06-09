@@ -44,7 +44,11 @@ export function useLocalStorage(key, intialValue) {
 
   const setLocalStorageValue = (value) => {
     setValue((prev) => {
-      const newData = [...prev, value]
+      if (!value) {
+        return JSON.parse(localStorage.getItem(key)) || intialValue;
+      }
+
+      const newData = [...prev, value];
       localStorage.setItem(key, JSON.stringify(newData));
 
       return [...newData];
