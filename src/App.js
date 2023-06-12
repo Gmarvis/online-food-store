@@ -12,7 +12,7 @@ import { AdminLogin } from "./pages/admin-login"
 import { Success } from "./pages/success-purchase";
 
 function App() {
-  const { value, setValue } = useLocalStorage("foodItems", []);
+  const { value, setValue } = useLocalStorage("foodItems", "adminData", []);
 
   return (
     <div className="main-section  h-screen">

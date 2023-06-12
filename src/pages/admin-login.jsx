@@ -17,6 +17,7 @@ export const AdminLogin = () => {
           initialValues={{
             username: "",
             email: "",
+            password: "",
           }}
           validate={(values) => {
             const errors = {};
@@ -31,6 +32,9 @@ export const AdminLogin = () => {
             ) {
               errors.email = "Invalid email address";
             }
+            if (!values.password){
+              errors.password = "enter password"
+            }
             return errors;
           }}
           onSubmit={(values) => {
@@ -43,7 +47,6 @@ export const AdminLogin = () => {
             <div>
               <h1 className="text-center text-yellow-700">Sign Up as Admin </h1>
             </div>
-            <br />
             <br />
             <div className="flex-1">
               <div>
@@ -73,13 +76,31 @@ export const AdminLogin = () => {
                   component="div"
                 />
               </div>
+
+              <br />
+              <div>
+                <Field
+                  className="field"
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                ></Field>
+                <ErrorMessage
+                  name="password"
+                  className=" error text-xs text-left italic font-thin text-red-700"
+                  component="div"
+                />
+              </div>
             </div>
+            <div className="assesBtn">
             <button
               type="submit"
-              className="signUpbtn  border bg-yellow-700 text-white hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
+              className="signUpbtn w-20 border bg-yellow-700 text-white hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
             >
               Sign Up
             </button>
+              <button className="signUpbtn w-20 border text-yellow-700 hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all">login</button>
+            </div>
           </Form>
         </Formik>
       </div>

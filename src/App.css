@@ -127,7 +127,8 @@ input {
 
 .profile-section {
   @apply flex-1 p-5 text-center border;
-  /* background-color: red; */
+  /* background-color:  #040d35ea; */
+
   width: 20%;
   height: 100vh;
 }
@@ -146,8 +147,8 @@ input {
   @apply text-center;
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.616),
-      rgba(10, 9, 10, 0.918)
+      #2206479d,
+      #040d35ea
     ),
     url(../public/assets/bg2.jpg);
   background-position: center;
@@ -171,6 +172,7 @@ input {
 .addProductForm {
   @apply border flex flex-col w-fit justify-center gap-5 p-2 mt-2;
   background-color: #eeebe6;
+  /* background-color:  #040d35ea; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -220,10 +222,16 @@ textarea {
   /* -webkit-filter: blur(8px); */
 }
 .signUpbtn {
-    width: 100%;
+    /* width: 100%; */
     height: 5vh;
-    /* background-color: #ec920c8e; */
+    /* border-radius: 50px; */
     box-shadow: rgba(170, 105, 20, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.assesBtn {
+  @apply flex justify-between;
+  font-size: 12px
+
 }
 
 
