@@ -13,11 +13,11 @@ export const Nav = ()=>{
                 <h1>FOODY</h1>
             <ul className="links flex content-evenly gap-5">
                 <li className="links hover:underline"> <Link to="/">Home</Link></li>
-                <li className="links hover:underline" > <Link to="/login">Login</Link></li>
+                {/* <li className="links hover:underline" > <Link to="/login">Login</Link></li> */}
 
                 <li><button className="links hover:underline" onClick={handleLogout}>logout</button></li>
 
-                <li className="links hover:underline" > <Link to="/admin"><i class="fa-solid fa-user"></i></Link></li>
+                <li className="links hover:underline" > <Link to="/signup"><i class="fa-solid fa-user"></i></Link></li>
                 <li className="links hover:underline" > <Link to="/checkout"><i class="fa-solid fa-cart-shopping"></i></Link></li>
             </ul>
         </nav>

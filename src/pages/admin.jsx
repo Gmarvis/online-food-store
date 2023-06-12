@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { FoodContext } from "../component/context";
-import { SignUp } from "../component/admin-component";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export const Admin = () => {
   const { value, setValue } = useContext(FoodContext);
@@ -53,15 +53,15 @@ export const Admin = () => {
   const clearForm = (event) => {
     const { image } = event.target;
     console.clear();
-    console.log(event)
-    image.value = ""
+    console.log(event);
+    image.value = "";
     setProductData({
       name: "",
       price: "",
       image: "",
       detials: "",
     });
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,7 +78,7 @@ export const Admin = () => {
     // handle delete
 
     setValue(productData);
-    clearForm(event)
+    clearForm(event);
   };
 
   // handle delete iterms
@@ -89,23 +89,23 @@ export const Admin = () => {
       return iterm.name !== name;
     });
 
-    localStorage.setItem('foodItems', JSON.stringify(update))
-    setValue('')
+    localStorage.setItem("foodItems", JSON.stringify(update));
+    setValue("");
   };
 
-  const adminData = JSON.parse(localStorage.getItem("adminData"))
-  console.clear()
-  console.log(adminData)
+  const adminData = JSON.parse(localStorage.getItem("adminData"));
+  console.clear();
+  console.log(adminData);
 
   return (
     <div className="admin-dashboard">
       <div className="profile-section">
         <div>
-          <img
+          {/* <img
             src="https://avatars.githubusercontent.com/u/106551910?v=4"
             alt=""
             className="avatar"
-          />
+          /> */}
           <h2>{adminData.username}</h2>
           <p>{adminData.email}</p>
         </div>
@@ -117,26 +117,82 @@ export const Admin = () => {
         </button>
 
         {showForm && (
-          <form className="updateForm" action="submit">
-            <input type="text" name="name" placeholder="User Name" />
+          <div className="pageContainer">
+            <div className="subContainer">
+              <Formik
+                initialValues={{
+                  username: "",
+                  email: "",
+                }}
+                validate={(values) => {
+                  const errors = {};
+                  if (!values.username) {
+                    errors.username = "username required";
+                  }
 
-            <input type="email" name="email" placeholder="change email" />
-
-            <input type="file" name="picture" />
-            <div>
-              <button className="profileBtn">Update</button>
-              <button
-                className="mt-3 text-red-800 text-2xl font-light"
-                onClick={(e) => {
-                  e.preventDefault();
+                  if (!values.email) {
+                    errors.email = "email required";
+                  } else if (
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                      values.email
+                    )
+                  ) {
+                    errors.email = "Invalid email address";
+                  }
+                  return errors;
+                }}
+                onSubmit={(values) => {
+                  localStorage.setItem("adminData", JSON.stringify(values));
                   setShowForm((prev) => !prev);
+                  console.log("admin user", values);
+                  // navigate('/admin')
                 }}
               >
-                {" "}
-                <GiCancel />{" "}
-              </button>
+                <Form className="adminForm">
+                  <div>
+                    <h1 className="text-center text-yellow-700">
+                      Make Profile changes
+                    </h1>
+                  </div>
+                  <div className="flex-1">
+                    <div>
+                      <Field
+                        className="field"
+                        type="text"
+                        name="username"
+                        placeholder="user name"
+                      ></Field>
+                      <ErrorMessage
+                        name="username"
+                        className=" error text-xs text-left italic font-thin text-red-700"
+                        component="div"
+                      />
+                    </div>
+
+                    <div>
+                      <Field
+                        className="field"
+                        type="email"
+                        name="email"
+                        placeholder="janedoe@email.com"
+                      ></Field>
+                      <ErrorMessage
+                        name="email"
+                        className=" error text-xs text-left italic font-thin text-red-700"
+                        component="div"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    className="signUpbtn border bg-yellow-700 text-white hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
+                  >
+                    Update
+                  </button>
+                </Form>
+              </Formik>
             </div>
-          </form>
+          </div>
         )}
       </div>
 

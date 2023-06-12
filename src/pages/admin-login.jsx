@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 
 export const AdminLogin = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="pageContainer">
       <div className="subContainer">
@@ -36,45 +36,48 @@ export const AdminLogin = () => {
           onSubmit={(values) => {
             localStorage.setItem("adminData", JSON.stringify(values));
             console.log("admin user", values);
-            navigate('/admin')
+            navigate("/admin");
           }}
         >
           <Form className="adminForm">
             <div>
-            <h1 className="text-left">Sign Up as Admin</h1>
-                
+              <h1 className="text-center text-yellow-700">Sign Up as Admin </h1>
             </div>
+            <br />
+            <br />
             <div className="flex-1">
-                <div>
+              <div>
                 <Field
-              className="field"
-              type="text"
-              name="username"
-              placeholder="user name"
-            ></Field>
-            <ErrorMessage
-              name="username"
-              className=" error text-xs text-left italic font-thin text-red-700"
-              component="div"
-            />
+                  className="field"
+                  type="text"
+                  name="username"
+                  placeholder="user name"
+                ></Field>
+                <ErrorMessage
+                  name="username"
+                  className=" error text-xs text-left italic font-thin text-red-700"
+                  component="div"
+                />
+              </div>
+              <br />
+              <div>
+                <Field
+                  className="field"
+                  type="email"
+                  name="email"
+                  placeholder="janedoe@email.com"
+                ></Field>
+                <ErrorMessage
+                  name="email"
+                  className=" error text-xs text-left italic font-thin text-red-700"
+                  component="div"
+                />
+              </div>
             </div>
-
-          <div>
-            <Field
-              className="field"
-              type="email"
-              name="email"
-              placeholder="janedoe@email.com"
-            ></Field>
-            <ErrorMessage
-              name="email"
-              className=" error text-xs text-left italic font-thin text-red-700"
-              component="div"
-            />
-       </div>
-
-       </div>
-            <button type="submit" className="signUpbtn">
+            <button
+              type="submit"
+              className="signUpbtn  border bg-yellow-700 text-white hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
+            >
               Sign Up
             </button>
           </Form>
