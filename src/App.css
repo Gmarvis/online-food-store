@@ -2,3 +2,333 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Frijole&display=swap");
+
+.landingHeader {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.767),
+      rgba(10, 9, 10, 0.918)
+    ),
+    url(../public/assets/bglanding.jpg);
+  /* filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); */
+  background-position: center;
+  background-size: cover;
+  /* height: 50vh; */
+}
+
+.mainText {
+  @apply text-center text-white pt-20 pb-20;
+  text-transform: uppercase;
+  font-family: "Frijole", cursive;
+  font-size: 45px;
+}
+
+.foodCards {
+  @apply flex flex-wrap justify-center gap-5 mt-3;
+  margin: 20px 10px;
+}
+
+.navBar {
+}
+
+@media screen and (max-width: 770px) {
+  .foodCards {
+    @apply flex-wrap;
+  }
+}
+
+.foodItem {
+  width: 20%;
+  flex-wrap: wrap;
+}
+
+input {
+  outline: none;
+  @apply border border-yellow-700;
+}
+
+.cont {
+  @apply w-fit;
+}
+
+.formMagin {
+  @apply mt-12;
+}
+
+.paymentBtn {
+  @apply bg-yellow-700 w-2/4 text-white mt-5 align-middle;
+  /* margin-top: 5px; */
+  width: 40%;
+}
+
+.mp {
+  @apply text-center text-yellow-600;
+
+  font-size: 60px;
+}
+
+.ppc input {
+  display: flex;
+  flex-direction: row;
+  color: #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ec930c;
+  margin: 20px 2px;
+  background: transparent;
+  width: fit-content;
+}
+
+.paymentSection {
+  @apply flex border border-yellow-700 w-4/5 m-auto justify-between p-2 mt-5;
+  height: 90vh;
+  margin-bottom: 20px;
+}
+
+.paymentSection img {
+  width: 50%;
+}
+
+.success {
+  @apply justify-around m-auto mt-20;
+  width: 90%;
+}
+
+.paymentSection {
+  @apply justify-around m-auto mt-20;
+}
+
+.successImg {
+  @apply m-auto;
+}
+
+.icon-thumpUp {
+  @apply text-yellow-600 text-center self-center m-auto mt-20;
+  font-size: 90px;
+}
+
+/* dashboard styles */
+.admin-dashboard {
+  @apply flex;
+}
+
+.avatar {
+  @apply mx-auto;
+  border-radius: 50%;
+  width: 150px;
+}
+
+.profile-section {
+  @apply flex-1 p-5 text-center border;
+  /* background-color:  #040d35ea; */
+
+  width: 20%;
+  height: 100vh;
+}
+
+.dashboard {
+  @apply bg-white;
+  width: 80%;
+}
+
+.textHeader {
+  font-size: 20px;
+  color: #fff;
+}
+
+.dashHeader {
+  @apply text-center;
+  background-image: linear-gradient(
+      to bottom,
+      #2206479d,
+      #040d35ea
+    ),
+    url(../public/assets/bg2.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 20vh;
+}
+
+.profileBtn {
+  @apply border border-yellow-700 mt-5 w-full;
+}
+
+.updateForm {
+  @apply flex-1 gap-4;
+}
+
+.updateForm input {
+  @apply mt-2;
+  width: 100%;
+}
+
+.addProductForm {
+  @apply border flex flex-col w-fit justify-center gap-5 p-2 mt-2;
+  background-color: #eeebe6;
+  /* background-color:  #040d35ea; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addBtn {
+  @apply m-2 p-1 text-white;
+  border: 1px solid white;
+  font-size: 12px;
+}
+
+.cardBtn {
+  @apply border p-1 border-yellow-700;
+  font-size: 12px;
+}
+
+.addBt {
+  @apply border border-yellow-700 m-auto text-yellow-700;
+  width: 100px;
+  border-radius: 20px;
+}
+.addProductForm input {
+  @apply rounded p-1;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+textarea {
+  @apply border border-yellow-700 p-1;
+  outline: none;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* end of dashboard style */
+
+/* admin page style */
+
+.pageContainer {
+  @apply h-full;
+  /* background-image: url(https://cdn.pixabay.com/photo/2016/03/02/20/13/grocery-1232944_1280.jpg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* filter: blur(8px); */
+  /* z-index: -1; */
+
+  /* -webkit-filter: blur(8px); */
+}
+.signUpbtn {
+    /* width: 100%; */
+    height: 5vh;
+    /* border-radius: 50px; */
+    box-shadow: rgba(170, 105, 20, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.assesBtn {
+  @apply flex justify-between;
+  font-size: 12px
+
+}
+
+
+.subContainer {
+  @apply m-auto border;
+  display: flex;
+  margin-top: 20vh;
+  background-color: #fff;
+  width: fit-content;
+  /* border-radius: 5px; */
+  padding: 2px;
+  top: 50%;
+  left: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  z-index: 10;
+}
+
+.adminForm{
+  @apply  gap-2 p-2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.field {
+    @apply p-1 border-none text-sm;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    border-radius: 5px;
+    color: #494135;
+}
+
+@media screen and (max-width: 800px) {
+  .foodItem {
+    width: 200px;
+    gap: 20px;
+    margin: 0;
+  }
+
+  .icon-thumpUp {
+    @apply mt-5;
+  }
+
+  .success {
+    @apply block;
+  }
+
+  .mp {
+    font-size: 20px;
+  }
+  .foodCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ppc {
+    width: 90%;
+  }
+
+  .pDetail {
+    width: 90%;
+  }
+
+  .container {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .paymentSection {
+    height: 90vh;
+  }
+}
+
+@media screen and (max-width: 654px) {
+  .paymentSection img {
+    display: none;
+  }
+
+  .paymentSection {
+    text-align: center;
+    width: 95%;
+  }
+
+  .paymentBtn {
+    /* display: flex; */
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .paymentSection {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .foodItem {
+    width: 100%;
+  }
+}
