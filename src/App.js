@@ -10,6 +10,7 @@ import { FoodProvider, useLocalStorage } from "./component/context";
 import { Login } from "./pages/login";
 import { AdminLogin } from "./pages/admin-login"
 import { Success } from "./pages/success-purchase";
+import { AcountLogin } from "./pages/acount-login";
 
 function App() {
   const { value, setValue } = useLocalStorage("foodItems", "adminData", []);
@@ -27,6 +28,8 @@ function App() {
           <Route path="/products/:name" element={<Product />} />
           <Route path="/checkout/:name" element={<Checkout />} />
           <Route path="/signup" element={<AdminLogin />} />
+          <Route path="/admin-login" element={<AcountLogin />} />
+
 
           <Route path="/success" element={<Success />} />
         </Routes>

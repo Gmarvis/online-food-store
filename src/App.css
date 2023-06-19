@@ -332,3 +332,49 @@ textarea {
     width: 100%;
   }
 }
+
+/* authentication */
+
+.login {
+  width: 30vw;
+  margin: 12vh auto;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  background-color: #fff;
+}
+
+.login img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.login form button {
+  @apply bg-yellow-700;
+  color: #fff;
+  transition: .3s ease-in;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+/* 
+.login form button:hover {
+  @apply bg-yellow-800;
+
+} */
+
+.logoutBtn {
+  border: 1px solid rgb(179, 119, 9);
+  margin-top: 23rem;
+  position: relative;
+  padding: 4px 8px;
+  bottom: 0;
+}

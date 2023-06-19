@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export const Nav = ()=>{
 
-    const handleLogout=()=>{
-        localStorage.clear("userData")
-    }
+    // const handleLogout=()=>{
+    //     localStorage.clear("userData")
+    // }
 
 
     return (
@@ -15,7 +15,7 @@ export const Nav = ()=>{
                 <li className="links hover:underline"> <Link to="/">Home</Link></li>
                 {/* <li className="links hover:underline" > <Link to="/login">Login</Link></li> */}
 
-                <li><button className="links hover:underline" onClick={handleLogout}>logout</button></li>
+                {/* <li><button className="links hover:underline" onClick={handleLogout}>logout</button></li> */}
 
                 <li className="links hover:underline" > <Link to="/signup"><i class="fa-solid fa-user"></i></Link></li>
                 <li className="links hover:underline" > <Link to="/checkout"><i class="fa-solid fa-cart-shopping"></i></Link></li>

@@ -76,9 +76,11 @@ export const Admin = () => {
     }
 
     // handle delete
+    console.clear();
+    console.log(productData);
 
     setValue(productData);
-    clearForm(event);
+    // clearForm(event);
   };
 
   // handle delete iterms
@@ -191,9 +193,13 @@ export const Admin = () => {
                   </button>
                 </Form>
               </Formik>
+
             </div>
+
           </div>
         )}
+      <button className="logoutBtn">Logout</button>
+
       </div>
 
       <div className="dashboard">
@@ -293,6 +299,7 @@ export const Admin = () => {
             })}
           </div>
         </>
+
       </div>
     </div>
   );

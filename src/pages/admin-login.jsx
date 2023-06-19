@@ -4,6 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 export const AdminLogin = () => {
   const navigate = useNavigate();
+
+
+  const handleLogin = ()=>{
+    navigate('/admin-login')
+  }
+
+
+
+
   return (
     <div className="pageContainer">
       <div className="subContainer">
@@ -99,7 +108,7 @@ export const AdminLogin = () => {
             >
               Sign Up
             </button>
-              <button className="signUpbtn w-20 border text-yellow-700 hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all">login</button>
+              <button className="signUpbtn w-20 border text-yellow-700 hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all" onClick={handleLogin}>login</button>
             </div>
           </Form>
         </Formik>
