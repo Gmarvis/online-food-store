@@ -16,14 +16,12 @@ export const Product = () => {
 
   const handlePurcase = () => {
     // navigate('/login')
- 
-      navigate(`/login/${params.name}`);
-  
+
+    navigate(`/login/${params.name}`);
   };
 
-const [foodDetail] = value.filter((food) => food.name === params.name);
-console.log(foodDetail)
-
+  const [foodDetail] = value.filter((food) => food.name === params.name);
+  console.log(foodDetail);
 
   console.log("foodDetail ", foodDetail);
 

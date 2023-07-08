@@ -1,0 +1,30 @@
+.header {
+  background-color: orange;
+}
+.headerSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80vh;
+  margin: 0 8%;
+}
+
+.headerText {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  /* height: 30px; */
+  background-color: aqua;
+}
+
+.headerText {
+  font-size: 45px;
+}
+
+.headerImage {
+}
+
+.headerImage img {
+  /* width: 60%; */
+  object-fit: fill;
+}
