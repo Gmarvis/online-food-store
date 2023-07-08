@@ -8,12 +8,11 @@ export const Header = () => {
       <div className="headerSection">
         <div>
           <div className="headerText">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-              qui.
-            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <h1>Fast Food Market Place</h1>
-            <button>visit store</button>
+            <button>
+              <a href="#foodCards">visit store</a>{" "}
+            </button>
           </div>
         </div>
         <div className="headerImage">

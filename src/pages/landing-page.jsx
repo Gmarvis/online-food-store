@@ -20,7 +20,7 @@ export const LandingPage = () => {
       </div> */}
       <Header />
 
-      <div className="foodCards">
+      <div className="foodCards" id="foodCards">
         {product?.map((foodItem) => {
           // handle click navigation to product detail page.
           const handDitails = () => {
