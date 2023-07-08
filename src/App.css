@@ -35,6 +35,7 @@
 }
 
 .navBar {
+  padding: 10px 9%;
 }
 
 @media screen and (max-width: 770px) {
@@ -277,31 +278,28 @@ textarea {
   .success {
     @apply block;
   }
-  setShowAddForm((prev) => !prev) .mp {
-    font-size: 20px;
-  }
-  .foodCards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+}
+.foodCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .ppc {
-    width: 90%;
-  }
+.ppc {
+  width: 90%;
+}
 
-  .pDetail {
-    width: 90%;
-  }
+.pDetail {
+  width: 90%;
+}
 
-  .container {
-    width: 90%;
-    margin-top: 40px;
-  }
+.container {
+  width: 90%;
+  margin-top: 40px;
+}
 
-  .paymentSection {
-    height: 90vh;
-  }
+.paymentSection {
+  height: 90vh;
 }
 
 @media screen and (max-width: 654px) {
