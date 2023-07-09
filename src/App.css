@@ -107,7 +107,7 @@ input {
 }
 
 .paymentSection {
-  @apply justify-around m-auto mt-20;
+  @apply justify-around m-auto mt-5;
 }
 
 .successImg {
@@ -299,7 +299,7 @@ textarea {
 }
 
 .paymentSection {
-  height: 90vh;
+  height: fit-content;
 }
 
 @media screen and (max-width: 654px) {
@@ -370,4 +370,11 @@ textarea {
   position: relative;
   padding: 4px 8px;
   bottom: 0;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 15px;
 }

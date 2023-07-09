@@ -11,7 +11,7 @@ export const Header = () => {
             <p>we are fast and reliable.</p>
             <h1>Fast Food Market Place</h1>
             <button>
-              <a href="#foodCards">visit store</a>{" "}
+              <a href="#foodCards">visit store</a>
             </button>
           </div>
         </div>

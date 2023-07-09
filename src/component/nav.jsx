@@ -8,7 +8,7 @@ export const Nav = () => {
 
   return (
     <nav className="navBar flex justify-between text-center  pt-3 bg-yellow-700 h-12 text-white px-4 align-middle">
-      <h1>FOODY</h1>
+      <h1 className="logo">FOODY</h1>
       <ul className="links flex content-evenly gap-5">
         <li className="links hover:underline">
           {" "}
