@@ -26,3 +26,9 @@ footer {
   color: #7c7979;
   font-size: 12px;
 }
+
+@media screen and (max-width: 770px) {
+  .footerContent {
+    display: block;
+  }
+}

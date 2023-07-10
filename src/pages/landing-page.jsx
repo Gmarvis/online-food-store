@@ -11,7 +11,7 @@ export const LandingPage = () => {
   const [sellerBtn, setSellerBtn] = useState("");
 
   const sellerText = () => {
-    if (!localStorage.getItem("foodItems")) {
+    if (localStorage.getItem("foodItems")) {
       setSellerBtn("looks like the shop is empty click here to setup shop...");
     } else {
       setSellerBtn("");

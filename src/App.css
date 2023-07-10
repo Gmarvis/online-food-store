@@ -328,12 +328,14 @@ textarea {
   .foodItem {
     width: 100%;
   }
+
+  .subContainer img {
+    display: none;
+  }
 }
 
-/* authentication */
-
 .login {
-  width: 30vw;
+  width: 80vw;
   margin: 12vh auto;
   padding: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
@@ -380,6 +382,24 @@ textarea {
 }
 
 .sellingBtn {
-  margin-left: 8%;
+  margin: 0 8%;
   color: #b37709;
+}
+
+@media screen and (max-width: 770px) {
+  .admin-dashboard {
+    display: block;
+  }
+
+  .profile-section {
+    display: none;
+  }
+
+  .dashboard {
+    width: 100vw;
+  }
+
+  .addProductForm {
+    width: 90vw;
+  }
 }
