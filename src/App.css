@@ -328,12 +328,14 @@ textarea {
   .foodItem {
     width: 100%;
   }
+
+  .subContainer img {
+    display: none;
+  }
 }
 
-/* authentication */
-
 .login {
-  width: 30vw;
+  width: 80vw;
   margin: 12vh auto;
   padding: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
@@ -365,7 +367,7 @@ textarea {
 }
 
 .logoutBtn {
-  border: 1px solid rgb(179, 119, 9);
+  border: 1px solid #b37709;
   margin-top: 23rem;
   position: relative;
   padding: 4px 8px;
@@ -377,4 +379,27 @@ textarea {
   font-weight: 800;
   color: #fff;
   margin-bottom: 15px;
+}
+
+.sellingBtn {
+  margin: 0 8%;
+  color: #b37709;
+}
+
+@media screen and (max-width: 770px) {
+  .admin-dashboard {
+    display: block;
+  }
+
+  .profile-section {
+    display: none;
+  }
+
+  .dashboard {
+    width: 100vw;
+  }
+
+  .addProductForm {
+    width: 90vw;
+  }
 }
