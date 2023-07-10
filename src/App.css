@@ -365,7 +365,7 @@ textarea {
 }
 
 .logoutBtn {
-  border: 1px solid rgb(179, 119, 9);
+  border: 1px solid #b37709;
   margin-top: 23rem;
   position: relative;
   padding: 4px 8px;
@@ -377,4 +377,9 @@ textarea {
   font-weight: 800;
   color: #fff;
   margin-bottom: 15px;
+}
+
+.sellingBtn {
+  margin-left: 8%;
+  color: #b37709;
 }

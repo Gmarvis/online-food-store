@@ -8,15 +8,35 @@ export const LandingPage = () => {
   const [product, setProduct] = useState(null);
   const { value } = useFooditerms();
   const navigate = useNavigate();
+  const [sellerBtn, setSellerBtn] = useState("");
+
+  const sellerText = () => {
+    if (!localStorage.getItem("foodItems")) {
+      setSellerBtn("looks like the shop is empty click here to setup shop...");
+    } else {
+      setSellerBtn("");
+    }
+  };
+
+  const handlesetupShop = () => {
+    if (localStorage.getItem("adminData")) {
+      navigate("/admin-login");
+    } else {
+      navigate("/signup");
+    }
+  };
 
   useEffect(() => {
     setProduct(value);
+    sellerText();
   }, []);
 
   return (
     <>
       <Header />
-
+      <button className="sellingBtn" onClick={handlesetupShop}>
+        {sellerBtn}
+      </button>
       <div className="foodCards" id="foodCards">
         {product?.map((foodItem) => {
           const handDitails = () => {
