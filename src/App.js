@@ -14,7 +14,7 @@ import { AcountLogin } from "./pages/acount-login";
 import { Footer } from "./component/footer/footer";
 
 function App() {
-  const { value, setValue } = useLocalStorage("foodItems", "adminData", []);
+  const { value, setValue } = useLocalStorage("foodItems", []);
 
   return (
     <>
