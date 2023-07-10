@@ -31,10 +31,11 @@
 
 .foodCards {
   @apply flex flex-wrap justify-center gap-5 mt-3;
-  margin: 20px 10px;
+  margin: 5rem 10px;
 }
 
 .navBar {
+  padding: 10px 9%;
 }
 
 @media screen and (max-width: 770px) {
@@ -46,6 +47,10 @@
 .foodItem {
   width: 20%;
   flex-wrap: wrap;
+}
+
+.foodItem img {
+  object-fit: fill;
 }
 
 input {
@@ -102,7 +107,7 @@ input {
 }
 
 .paymentSection {
-  @apply justify-around m-auto mt-20;
+  @apply justify-around m-auto mt-5;
 }
 
 .successImg {
@@ -145,11 +150,7 @@ input {
 
 .dashHeader {
   @apply text-center;
-  background-image: linear-gradient(
-      to bottom,
-      #2206479d,
-      #040d35ea
-    ),
+  background-image: linear-gradient(to bottom, #2206479d, #040d35ea),
     url(../public/assets/bg2.jpg);
   background-position: center;
   background-size: cover;
@@ -222,18 +223,17 @@ textarea {
   /* -webkit-filter: blur(8px); */
 }
 .signUpbtn {
-    /* width: 100%; */
-    height: 5vh;
-    /* border-radius: 50px; */
-    box-shadow: rgba(170, 105, 20, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  /* width: 100%; */
+  height: 5vh;
+  /* border-radius: 50px; */
+  box-shadow: rgba(170, 105, 20, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
 .assesBtn {
   @apply flex justify-between;
-  font-size: 12px
-
+  font-size: 12px;
 }
-
 
 .subContainer {
   @apply m-auto border;
@@ -249,18 +249,19 @@ textarea {
   z-index: 10;
 }
 
-.adminForm{
-  @apply  gap-2 p-2;
+.adminForm {
+  @apply gap-2 p-2;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
 .field {
-    @apply p-1 border-none text-sm;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    border-radius: 5px;
-    color: #494135;
+  @apply p-1 border-none text-sm;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border-radius: 5px;
+  color: #494135;
 }
 
 @media screen and (max-width: 800px) {
@@ -277,32 +278,28 @@ textarea {
   .success {
     @apply block;
   }
+}
+.foodCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .mp {
-    font-size: 20px;
-  }
-  .foodCards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.ppc {
+  width: 90%;
+}
 
-  .ppc {
-    width: 90%;
-  }
+.pDetail {
+  width: 90%;
+}
 
-  .pDetail {
-    width: 90%;
-  }
+.container {
+  width: 90%;
+  margin-top: 40px;
+}
 
-  .container {
-    width: 90%;
-    margin-top: 40px;
-  }
-
-  .paymentSection {
-    height: 90vh;
-  }
+.paymentSection {
+  height: fit-content;
 }
 
 @media screen and (max-width: 654px) {
@@ -331,4 +328,53 @@ textarea {
   .foodItem {
     width: 100%;
   }
+}
+
+/* authentication */
+
+.login {
+  width: 30vw;
+  margin: 12vh auto;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  background-color: #fff;
+}
+
+.login img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.login form button {
+  @apply bg-yellow-700;
+  color: #fff;
+  transition: 0.3s ease-in;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.logoutBtn {
+  border: 1px solid rgb(179, 119, 9);
+  margin-top: 23rem;
+  position: relative;
+  padding: 4px 8px;
+  bottom: 0;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 15px;
 }

@@ -1,0 +1,28 @@
+footer {
+  background-color: #382509;
+  height: 40vh;
+}
+
+.footerContent {
+  padding: 50px 8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footerContent h1 {
+  font-size: 25px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.footerContent h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.footerContent p {
+  color: #7c7979;
+  font-size: 12px;
+}

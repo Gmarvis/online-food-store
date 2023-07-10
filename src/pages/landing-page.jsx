@@ -1,25 +1,24 @@
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFooditerms } from "../component/context";
+import { Header } from "../component/header/header";
+import { Footer } from "../component/footer/footer";
 
 export const LandingPage = () => {
-  const [product, setProduct] = useState()
+  const [product, setProduct] = useState(null);
   const { value } = useFooditerms();
   const navigate = useNavigate();
 
   useEffect(() => {
     setProduct(value);
-  },[]);
+  }, []);
 
   return (
     <>
-      <div className="landingHeader">
-        <h1 className="mainText">Food Market Place</h1>
-      </div>
+      <Header />
 
-      <div className="foodCards ">
+      <div className="foodCards" id="foodCards">
         {product?.map((foodItem) => {
-          // handle click navigation to product detail page.
           const handDitails = () => {
             navigate(`./products/${foodItem.name}`);
           };
@@ -47,6 +46,7 @@ export const LandingPage = () => {
           );
         })}
       </div>
+      <Footer />
     </>
   );
 };

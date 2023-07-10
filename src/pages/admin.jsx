@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { GiCancel } from "react-icons/gi";
+// import { GiCancel } from "react-icons/gi";
 import { FoodContext } from "../component/context";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
@@ -52,7 +52,7 @@ export const Admin = () => {
 
   const clearForm = (event) => {
     const { image } = event.target;
-    console.clear();
+    // console.clear();
     console.log(event);
     image.value = "";
     setProductData({
@@ -76,9 +76,18 @@ export const Admin = () => {
     }
 
     // handle delete
+    console.clear();
+    console.log(productData);
 
     setValue(productData);
-    clearForm(event);
+    setProductData({
+      name: "",
+      price: "",
+      image: "",
+      detials: "",
+    });
+    setShowAddForm((prev) => !prev);
+    // clearForm(event);
   };
 
   // handle delete iterms
@@ -101,11 +110,6 @@ export const Admin = () => {
     <div className="admin-dashboard">
       <div className="profile-section">
         <div>
-          {/* <img
-            src="https://avatars.githubusercontent.com/u/106551910?v=4"
-            alt=""
-            className="avatar"
-          /> */}
           <h2>{adminData.username}</h2>
           <p>{adminData.email}</p>
         </div>
@@ -194,6 +198,7 @@ export const Admin = () => {
             </div>
           </div>
         )}
+        <button className="logoutBtn">Logout</button>
       </div>
 
       <div className="dashboard">
