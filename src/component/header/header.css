@@ -35,8 +35,8 @@
   padding: 8px 15px;
   font-size: 16px;
   font-weight: 500;
-  color: #a16207;
-  border: 1px solid #a16207;
+  color: #091450;
+  border: 1px solid #091450;
   cursor: pointer;
   position: relative;
   background-color: transparent;
@@ -53,8 +53,9 @@
   top: 0;
   width: 100%;
   height: 100%;
-  color: #ec930c;
-  background-color: #091450;
+  color: #091450;
+  border: 1px solid #ec930c;
+  background-color: #ec930c;
   transform: translateX(-100%);
   transition: all 0.3s;
   z-index: -1;

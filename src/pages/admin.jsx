@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FoodContext } from "../component/context";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Footer } from "../component/footer/footer";
+import { FaTrashAlt } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 
 export const Admin = () => {
   const { value, setValue } = useContext(FoodContext);
@@ -200,7 +202,7 @@ export const Admin = () => {
               </div>
             </div>
           )}
-          <button className="logoutBtn">Logout</button>
+          {/* <button className="logoutBtn">Logout</button> */}
         </div>
 
         <div className="dashboard">
@@ -271,29 +273,35 @@ export const Admin = () => {
             </form>
           )}
           <>
-            <div className="foodCards ">
+            <div className=" adminCards">
               {value?.map((foodItem) => {
                 // handle click navigation to product detail page.
 
                 return (
-                  <div
-                    key={foodItem.name}
-                    className="foodItem border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"
-                  >
+                  <div key={foodItem.name} className=" displayFood">
                     <img
                       src={foodItem.image}
                       alt={foodItem.name}
-                      className="card h-24 items-center mx-auto"
+                      // className="card "
                     />
-                    <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
-                    <span>${foodItem.price}</span>
-                    <div className="flex  justify-start">
-                      <button
-                        className="cardBtn  bg-yellow-800 text-white"
+
+                    <div className="priceArea">
+                      <h3 className="fItern text-yellow-600">
+                        {foodItem.name}
+                      </h3>
+                      <span>${foodItem.price}</span>
+                    </div>
+
+                    <div className="updateBtn">
+                      {/* <button
+                        className="deleteBtn"
                         onClick={() => handleDelete(foodItem.name)}
-                      >
-                        Delete
-                      </button>
+                      ></button> */}
+                      <FaTrashAlt
+                        onClick={() => handleDelete(foodItem.name)}
+                        className="updateIcons"
+                      />
+                      <FiEdit className="updateIcons" />
                     </div>
                   </div>
                 );

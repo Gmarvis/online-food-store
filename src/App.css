@@ -243,11 +243,86 @@ input {
   font-size: 12px;
 }
 
+.displayFood {
+  /* border: 1px solid #ec930c; */
+  height: 236px;
+  padding: 5px 8px;
+  width: 20vw;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.displayFood img {
+  object-fit: cover;
+  width: fit-content;
+  height: 80%;
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.adminCards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 2rem;
+  /* width: 90%; */
+  margin: 0 auto;
+  /* overflow: hidden; */
+  flex-wrap: wrap;
+}
+
+.priceArea {
+  display: flex;
+  justify-content: space-between;
+}
+
+.updateBtn {
+  color: #091450;
+  display: flex;
+  padding: 5px 0;
+  justify-content: space-between;
+}
+.updateIcons:hover {
+  cursor: pointer;
+  color: #ec930c;
+}
+.flex {
+  margin: 5px;
+}
+
 textarea {
   @apply border border-yellow-700 p-1;
   outline: none;
   font-weight: 400;
   font-size: 12px;
+}
+
+.adminCards {
+  margin: 2rem 0;
+}
+
+@media screen and (max-width: 770px) {
+  .displayFood {
+    width: 50%;
+    margin: 2%;
+  }
+
+  .adminCards {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .displayFood {
+    width: 90%;
+    margin: 2%;
+  }
+
+  .adminCards {
+    margin: 0 auto;
+  }
 }
 
 /* end of dashboard style */
@@ -294,13 +369,16 @@ textarea {
   flex-direction: column;
   justify-content: space-evenly;
 }
-
+.adminForm .field {
+  color: #000;
+}
 .field {
   @apply p-1 border-none text-sm;
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+
   border-radius: 5px;
-  color: #494135;
+  color: #091450;
 }
 
 @media screen and (max-width: 800px) {
@@ -471,7 +549,7 @@ textarea {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
     rgb(209, 213, 219) 0px 0px 0px 1px inset;
   padding: 2rem;
-  color: rgba(243, 244, 246, 1);
+  color: #091450;
   margin: 2rem auto;
 }
 
@@ -604,7 +682,7 @@ textarea {
     rgba(160, 92, 15, 0.08) 0px 0px 0px 1px;
   padding: 3px 10px;
   font-weight: 600;
-  background-color: #ec930c;
+  background-color: #091450;
   color: #fff;
   transition: 0.3s ease;
 }
