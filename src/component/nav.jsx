@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { useLocalStorage } from "./context";
 
 export const Nav = () => {
+  let adminUser = JSON.parse(localStorage.getItem("adminData"));
+  let routTo = "";
+  // !adminUser ? (routTo = "/signup") : (routTo = "/admin-login");
+
+  if (adminUser === null) {
+    routTo = "/signup";
+  } else {
+    routTo = "/admin-login";
+  }
   return (
     <nav className="navBar">
       <h1 className="logo">FOODY</h1>
@@ -13,7 +23,7 @@ export const Nav = () => {
 
         <li className="links hover:underline">
           {" "}
-          <Link to="/signup">
+          <Link to={routTo}>
             <i class="fa-solid fa-user"></i>
           </Link>
         </li>
