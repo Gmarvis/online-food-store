@@ -373,7 +373,7 @@ textarea {
 }
 
 .formik .btn {
-  background-color: #ec930c;
+  background-color: #091450;
   height: 40px;
   width: 90%;
   margin: auto;
@@ -382,8 +382,7 @@ textarea {
 }
 
 .formik .btn:hover {
-  border: 1px solid #091450;
-  background-color: transparent;
+  background-color: #ec930c;
   color: #091450;
 }
 
@@ -439,7 +438,6 @@ textarea {
   }
 
   .paymentBtn {
-    /* display: flex; */
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -447,9 +445,6 @@ textarea {
 
   .paymentSection {
     height: 60vh;
-  }
-
-  .field {
   }
 }
 
@@ -467,20 +462,30 @@ textarea {
   }
 }
 
+/* -----------------admin login form-------------------- */
+
 .login {
-  width: 80vw;
-  margin: 12vh auto;
-  padding: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  background-color: #fff;
+  width: 25vw;
+  border-radius: 0.75rem;
+  /* background-color: rgba(17, 24, 39, 1); */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  padding: 2rem;
+  color: rgba(243, 244, 246, 1);
+  margin: 2rem auto;
 }
 
-.login img {
-  width: 15rem;
-  height: 15rem;
-  border-radius: 50%;
-  margin: 0 auto;
+.login h2 {
+  text-align: center;
+  text-transform: capitalize;
+  color: #091450;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.login label {
+  color: #ec930c;
 }
 
 .login form {
@@ -499,6 +504,39 @@ textarea {
   margin-bottom: 2rem;
 }
 
+.loginInput {
+  margin: 0;
+  border: none;
+  width: 95%;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 8px 5px;
+}
+
+.login form button {
+  height: auto;
+  margin: auto;
+  background-color: #091450;
+
+  padding: 8px 2rem;
+  text-transform: uppercase;
+}
+
+.abminBtn:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: #ec930c;
+}
+
+@media screen and (max-width: 770px) {
+  .login {
+    width: 80%;
+  }
+}
+
+/* -----------------admin login form end------------------ */
+
 .logoutBtn {
   border: 1px solid #b37709;
   margin-top: 23rem;
@@ -506,7 +544,6 @@ textarea {
   padding: 4px 8px;
   bottom: 0;
 }
-
 .logo {
   font-size: 25px;
   font-weight: 800;
@@ -521,7 +558,6 @@ textarea {
 
 .puchaseSection {
   padding: 10px 9%;
-  /* height: ; */
   height: auto;
 }
 

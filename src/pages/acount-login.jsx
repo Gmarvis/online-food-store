@@ -34,39 +34,33 @@ export const AcountLogin = () => {
     <>
       <div>
         <div className="login">
-          <img
-            src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
-            alt=""
-          />
-          <div>
-            <form action="" className="checkAcount" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={checkAcount.name}
-                onChange={handleChange}
-                placeholder="enter name"
-              />
+          <h2>login as Admin</h2>
+          <form action="" className="checkAcount" onSubmit={handleSubmit}>
+            <label htmlFor="name">Username</label>
+            <input
+              type="text"
+              id="name"
+              className="loginInput"
+              name="name"
+              value={checkAcount.name}
+              onChange={handleChange}
+              placeholder="Username"
+            />
+            <label htmlFor="password"> Password</label>
+            <input
+              className="loginInput"
+              type="password"
+              id="password"
+              name="password"
+              value={checkAcount.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
 
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={checkAcount.password}
-                onChange={handleChange}
-                placeholder="enter password"
-              />
-
-              {/* <button>Login</button> */}
-              <button
-                className="signUpbtn w-20 border text-yellow-700 hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
-                onSubmit={handleSubmit}
-              >
-                login
-              </button>
-            </form>
-          </div>
+            <button className="abminBtn" onSubmit={handleSubmit}>
+              login
+            </button>
+          </form>
         </div>
       </div>
       <Footer />
