@@ -1,17 +1,14 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../component/footer/footer";
 
 export const AdminLogin = () => {
   const navigate = useNavigate();
 
-
-  const handleLogin = ()=>{
-    navigate('/admin-login')
-  }
-
-
-
+  const handleLogin = () => {
+    navigate("/admin-login");
+  };
 
   return (
     <div className="pageContainer">
@@ -41,8 +38,8 @@ export const AdminLogin = () => {
             ) {
               errors.email = "Invalid email address";
             }
-            if (!values.password){
-              errors.password = "enter password"
+            if (!values.password) {
+              errors.password = "enter password";
             }
             return errors;
           }}
@@ -102,17 +99,23 @@ export const AdminLogin = () => {
               </div>
             </div>
             <div className="assesBtn">
-            <button
-              type="submit"
-              className="signUpbtn w-20 border bg-yellow-700 text-white hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
-            >
-              Sign Up
-            </button>
-              <button className="signUpbtn w-20 border text-yellow-700 hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all" onClick={handleLogin}>login</button>
+              <button
+                type="submit"
+                className="signUpbtn w-20 border bg-yellow-700 text-white hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
+              >
+                Sign Up
+              </button>
+              <button
+                className="signUpbtn w-20 border text-yellow-700 hover:bg-white hover:text-yellow-700 hover:border-yellow-700 transition-all"
+                onClick={handleLogin}
+              >
+                login
+              </button>
             </div>
           </Form>
         </Formik>
       </div>
+      <Footer />
     </div>
   );
 };

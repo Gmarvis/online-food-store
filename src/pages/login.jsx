@@ -21,9 +21,12 @@ export function Login() {
 
   return (
     <>
-      <div className="container flex flex-col text-center md:w-96 mx-auto border-2 p-2 rounded h-80 justify-between my-20 border-yellow-700">
-        <h1 className="header ">Personal Details</h1>
-        <p>and location for delivery</p>
+      <div className="formWrapper">
+        <div className="textHeader">
+          <p>for delivery</p>
+          <h1>Enter location Details</h1>
+        </div>
+
         <Formik
           // initial values with keys
           initialValues={{
@@ -64,60 +67,40 @@ export function Login() {
             }, 1000);
           }}
         >
-          <Form className="form flex-1 flex flex-col text-center  justify-between">
+          <Form className="formik">
             <Field
-              className="field border p-1 rounded  outline-none text-sm "
+              className="inputs"
               type="text"
               name="firstname"
               placeholder="Enter Firstname"
             ></Field>
-            <ErrorMessage
-              name="firstname"
-              className=" error text-left italic font-thin text-base text-red-700"
-              component="div"
-            />
+            <ErrorMessage name="firstname" className=" error" component="div" />
 
             <Field
-              className="field border p-1 rounded  outline-none text-sm font-light"
+              className="inputs"
               type="text"
               name="lastname"
               placeholder="Enter Lastname"
             ></Field>
-            <ErrorMessage
-              name="lastname"
-              className=" error text-xs text-left italic font-thin text-red-700"
-              component="div"
-            />
+            <ErrorMessage name="lastname" className=" error" component="div" />
 
             <Field
-              className="field border p-1 rounded   outline-none text-sm font-light"
+              className="inputs"
               type="email"
               name="email"
               placeholder="johndoe@gmail.com"
             ></Field>
-            <ErrorMessage
-              name="email"
-              className=" error text-left italic font-thin text-base text-red-700"
-              component="div"
-            />
+            <ErrorMessage name="email" className=" error" component="div" />
 
             <Field
-              className="field border p-1 rounded  outline-none text-sm font-light"
+              className="inputs"
               type="location"
               name="location"
               placeholder="Location"
             ></Field>
-            <ErrorMessage
-              name="location"
-              className=" error text-xs text-left italic font-thin text-red-700"
-              component="div"
-            />
+            <ErrorMessage name="location" className=" error" component="div" />
 
-            <button
-              type="submit"
-              onSubmit={handleSubmit}
-              className="btn  bg-yellow-700 w-2/5 mx-auto text-red-50 rounded-2xl p-2 "
-            >
+            <button type="submit" onSubmit={handleSubmit} className="btn">
               SUBMIT
             </button>
           </Form>

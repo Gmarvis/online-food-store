@@ -22,16 +22,50 @@
   /* height: 50vh; */
 }
 
-.mainText {
-  @apply text-center text-white pt-20 pb-20;
-  text-transform: uppercase;
-  font-family: "Frijole", cursive;
-  font-size: 45px;
+.foodCards {
+  @apply flex flex-wrap justify-center gap-5;
+  margin: 0 10px 5rem;
 }
 
-.foodCards {
-  @apply flex flex-wrap justify-center gap-5 mt-3;
-  margin: 5rem 10px;
+.foodItem {
+  /* border: 1px solid #b37709; */
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.foodItem img {
+  object-fit: cover;
+  width: fit-content;
+  height: 80%;
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.foodItem:hover {
+  border-radius: 0%;
+  cursor: pointer;
+}
+
+.foodItem img:hover {
+  border-radius: 0%;
+}
+
+.baseInfor {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0 5px;
+}
+
+.baseInfor h3 {
+  text-transform: capitalize;
+  color: #b37709;
+}
+
+.baseInfor span {
+  color: #b37709;
 }
 
 .navBar {
@@ -67,15 +101,19 @@ input {
 }
 
 .paymentBtn {
-  @apply bg-yellow-700 w-2/4 text-white mt-5 align-middle;
-  /* margin-top: 5px; */
-  width: 40%;
+  box-shadow: rgba(168, 126, 8, 0.25) 0px 4px 8px -2px,
+    rgba(160, 92, 15, 0.08) 0px 0px 0px 1px;
+  padding: 3px 20px;
+  font-weight: 600;
+  background-color: #ec930c;
+  color: #fff;
+  transition: 0.3s ease;
 }
 
 .mp {
-  @apply text-center text-yellow-600;
+  font-size: 20px;
 
-  font-size: 60px;
+  /* font-size: 60px; */
 }
 
 .ppc input {
@@ -92,13 +130,18 @@ input {
 }
 
 .paymentSection {
-  @apply flex border border-yellow-700 w-4/5 m-auto justify-between p-2 mt-5;
-  height: 90vh;
-  margin-bottom: 20px;
+  /* @apply flex border border-yellow-700 m-auto justify-between p-2; */
+  display: flex;
+  height: 40vh;
+  margin: auto;
+  width: 60vw;
+  margin-bottom: 20rem;
 }
 
 .paymentSection img {
   width: 50%;
+  object-fit: cover;
+  height: auto;
 }
 
 .success {
@@ -213,14 +256,10 @@ textarea {
 
 .pageContainer {
   @apply h-full;
-  /* background-image: url(https://cdn.pixabay.com/photo/2016/03/02/20/13/grocery-1232944_1280.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* filter: blur(8px); */
-  /* z-index: -1; */
-
-  /* -webkit-filter: blur(8px); */
+  height: 100vh;
 }
 .signUpbtn {
   /* width: 100%; */
@@ -238,13 +277,13 @@ textarea {
 .subContainer {
   @apply m-auto border;
   display: flex;
-  margin-top: 20vh;
+  margin: 5% auto;
   background-color: #fff;
   width: fit-content;
   /* border-radius: 5px; */
   padding: 2px;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   z-index: 10;
 }
@@ -302,6 +341,88 @@ textarea {
   height: fit-content;
 }
 
+/* -----------------------buyers details form styles------------------------- */
+.formWrapper {
+  padding-top: 1rem;
+  height: auto;
+}
+
+.formik {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  height: auto;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+}
+.textHeader {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.textHeader h1 {
+  color: #ec930c;
+  font-size: 40px;
+}
+
+.textHeader p {
+  color: #091450;
+}
+
+.formik .btn {
+  background-color: #091450;
+  height: 40px;
+  width: 90%;
+  margin: auto;
+  color: #fff;
+  transition: 0.3s ease-in;
+}
+
+.formik .btn:hover {
+  background-color: #ec930c;
+  color: #091450;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 0 1.5rem 0;
+}
+
+.inputs {
+  width: 90%;
+  border-radius: 5px;
+  padding: 5px;
+  height: 50px;
+  font-size: 12px;
+
+  margin: auto;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  margin: 10px auto;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 770px) {
+  .formik {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    height: auto;
+    margin: 0 auto 2rem;
+    padding: 1rem;
+  }
+}
+
+/* --------------------------end of buyers details form styles----------------------------- */
+
 @media screen and (max-width: 654px) {
   .paymentSection img {
     display: none;
@@ -312,8 +433,11 @@ textarea {
     width: 95%;
   }
 
+  .field {
+    width: 100%;
+  }
+
   .paymentBtn {
-    /* display: flex; */
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -328,24 +452,40 @@ textarea {
   .foodItem {
     width: 100%;
   }
+
+  .subContainer img {
+    display: none;
+  }
+
+  .adminForm {
+    width: 90vw;
+  }
 }
 
-/* authentication */
+/* -----------------admin login form-------------------- */
 
 .login {
-  width: 30vw;
-  margin: 12vh auto;
-  padding: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  background-color: #fff;
+  width: 25vw;
+  border-radius: 0.75rem;
+  /* background-color: rgba(17, 24, 39, 1); */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  padding: 2rem;
+  color: rgba(243, 244, 246, 1);
+  margin: 2rem auto;
 }
 
-.login img {
-  width: 15rem;
-  height: 15rem;
-  border-radius: 50%;
-  margin: 0 auto;
+.login h2 {
+  text-align: center;
+  text-transform: capitalize;
+  color: #091450;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.login label {
+  color: #ec930c;
 }
 
 .login form {
@@ -364,17 +504,209 @@ textarea {
   margin-bottom: 2rem;
 }
 
+.loginInput {
+  margin: 0;
+  border: none;
+  width: 95%;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 8px 5px;
+}
+
+.login form button {
+  height: auto;
+  margin: auto;
+  background-color: #091450;
+
+  padding: 8px 2rem;
+  text-transform: uppercase;
+}
+
+.abminBtn:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: #ec930c;
+}
+
+@media screen and (max-width: 770px) {
+  .login {
+    width: 80%;
+  }
+}
+
+/* -----------------admin login form end------------------ */
+
 .logoutBtn {
-  border: 1px solid rgb(179, 119, 9);
+  border: 1px solid #b37709;
   margin-top: 23rem;
   position: relative;
   padding: 4px 8px;
   bottom: 0;
 }
-
 .logo {
   font-size: 25px;
   font-weight: 800;
   color: #fff;
   margin-bottom: 15px;
 }
+
+.sellingBtn {
+  margin: 0 8%;
+  color: #b37709;
+}
+
+.puchaseSection {
+  padding: 10px 9%;
+  height: auto;
+}
+
+.detailsCard {
+  display: flex;
+  height: auto;
+  margin: 55px auto;
+  width: 70%;
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.detailPicture {
+  width: 40%;
+  /* background-color: cyan; */
+}
+
+.detailPicture img {
+  object-fit: cover;
+  width: fit-content;
+  height: 100%;
+  margin: auto;
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: auto;
+  justify-content: space-between;
+  padding: 10px 5px;
+}
+
+.detailsSection h1 {
+  font-size: 24px;
+  color: #ec930c;
+  font-weight: lighter;
+  text-transform: capitalize;
+  text-decoration: wavy;
+}
+
+.detailsSection .btn {
+  box-shadow: rgba(168, 126, 8, 0.25) 0px 4px 8px -2px,
+    rgba(160, 92, 15, 0.08) 0px 0px 0px 1px;
+  padding: 3px 10px;
+  font-weight: 600;
+  background-color: #ec930c;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.detailsSection p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 200;
+  color: #2c210c;
+}
+
+.priceAndBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceAndBtn span {
+  height: auto;
+  margin: auto 0;
+  color: #b37709;
+}
+.detailsSection .btn:hover {
+  color: #ec930c;
+  background-color: transparent;
+  border: 1px solid #ec930c;
+}
+
+@media screen and (max-width: 770px) {
+  .admin-dashboard {
+    display: block;
+  }
+
+  .profile-section {
+    display: none;
+  }
+
+  .dashboard {
+    width: 100vw;
+  }
+
+  .addProductForm {
+    width: 90vw;
+  }
+
+  .detailsCard {
+    display: block;
+    width: 100%;
+  }
+
+  .detailPicture {
+    width: 100%;
+    /* background-color: cyan; */
+  }
+
+  .detailsSection {
+    width: 100%;
+  }
+}
+
+.socialIcons {
+  display: flex;
+  color: #fff;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.socialIcons > :hover {
+  color: #ec930c;
+  cursor: pointer;
+}
+
+.pageWrapper {
+  text-align: center;
+}
+
+.pageWrapper h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #091450;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+/* ------------navbar style---------------------- */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  position: static;
+  background-color: #091450;
+  /* width: 100vw; */
+}
+
+.logo {
+  height: auto;
+  margin: auto 0;
+}
+
+.navBar ul {
+  color: #ec930c;
+  height: auto;
+  margin: auto 0;
+}
+
+/* ------------navbar style end---------------------- */

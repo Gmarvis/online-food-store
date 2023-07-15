@@ -31,7 +31,6 @@ function App() {
             <Route path="/checkout/:name" element={<Checkout />} />
             <Route path="/signup" element={<AdminLogin />} />
             <Route path="/admin-login" element={<AcountLogin />} />
-
             <Route path="/success" element={<Success />} />
           </Routes>
         </FoodProvider>

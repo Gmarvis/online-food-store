@@ -1,26 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { useLocalStorage } from "./context";
 
 export const Nav = () => {
-  // const handleLogout=()=>{
-  //     localStorage.clear("userData")
-  // }
+  let adminUser = JSON.parse(localStorage.getItem("adminData"));
+  let routTo = "";
+  // !adminUser ? (routTo = "/signup") : (routTo = "/admin-login");
 
+  if (adminUser === null) {
+    routTo = "/signup";
+  } else {
+    routTo = "/admin-login";
+  }
   return (
-    <nav className="navBar flex justify-between text-center  pt-3 bg-yellow-700 h-12 text-white px-4 align-middle">
+    <nav className="navBar">
       <h1 className="logo">FOODY</h1>
       <ul className="links flex content-evenly gap-5">
         <li className="links hover:underline">
           {" "}
           <Link to="/">Home</Link>
         </li>
-        {/* <li className="links hover:underline" > <Link to="/login">Login</Link></li> */}
-
-        {/* <li><button className="links hover:underline" onClick={handleLogout}>logout</button></li> */}
 
         <li className="links hover:underline">
           {" "}
-          <Link to="/signup">
+          <Link to={routTo}>
             <i class="fa-solid fa-user"></i>
           </Link>
         </li>
