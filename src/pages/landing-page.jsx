@@ -11,7 +11,8 @@ export const LandingPage = () => {
   const [sellerBtn, setSellerBtn] = useState("");
 
   const sellerText = () => {
-    if (localStorage.getItem("foodItems")) {
+    const sell = localStorage.getItem("foodItems");
+    if (!sell || sell === []) {
       setSellerBtn("looks like the shop is empty click here to setup shop...");
     } else {
       setSellerBtn("");
@@ -37,30 +38,23 @@ export const LandingPage = () => {
       <button className="sellingBtn" onClick={handlesetupShop}>
         {sellerBtn}
       </button>
+
       <div className="foodCards" id="foodCards">
         {product?.map((foodItem) => {
           const handDitails = () => {
             navigate(`./products/${foodItem.name}`);
           };
           return (
-            <div
-              key={foodItem.name}
-              className="foodItem border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"
-            >
+            <div key={foodItem.name} className="foodItem" onClick={handDitails}>
               <img
                 src={foodItem.image}
                 alt={foodItem.name}
                 className="card h-24 items-center mx-auto"
               />
-              <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
-              <span>${foodItem.price}</span>
-              <div>
-                <button
-                  className="btn border border-yellow-700 text-yellow-700 p-1  hover:text-yellow-700 hover:bg-white"
-                  onClick={handDitails}
-                >
-                  Detials
-                </button>
+
+              <div className="baseInfor">
+                <h3 className="fItern">{foodItem.name}</h3>
+                <span>${foodItem.price}</span>
               </div>
             </div>
           );

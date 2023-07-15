@@ -22,16 +22,57 @@
   /* height: 50vh; */
 }
 
-.mainText {
+/* .mainText {
   @apply text-center text-white pt-20 pb-20;
   text-transform: uppercase;
   font-family: "Frijole", cursive;
   font-size: 45px;
-}
+} */
 
 .foodCards {
-  @apply flex flex-wrap justify-center gap-5 mt-3;
+  @apply flex flex-wrap justify-center gap-5;
   margin: 5rem 10px;
+}
+
+.foodItem {
+  /* border: 1px solid #b37709; */
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.foodItem img {
+  object-fit: cover;
+  width: fit-content;
+  height: 80%;
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.foodItem:hover {
+  border-radius: 0%;
+  cursor: pointer;
+}
+
+.foodItem img:hover {
+  border-radius: 0%;
+}
+
+.baseInfor {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0 5px;
+}
+
+.baseInfor h3 {
+  text-transform: capitalize;
+  color: #b37709;
+}
+
+.baseInfor span {
+  color: #b37709;
 }
 
 .navBar {
@@ -67,15 +108,19 @@ input {
 }
 
 .paymentBtn {
-  @apply bg-yellow-700 w-2/4 text-white mt-5 align-middle;
-  /* margin-top: 5px; */
-  width: 40%;
+  box-shadow: rgba(168, 126, 8, 0.25) 0px 4px 8px -2px,
+    rgba(160, 92, 15, 0.08) 0px 0px 0px 1px;
+  padding: 3px 20px;
+  font-weight: 600;
+  background-color: #ec930c;
+  color: #fff;
+  transition: 0.3s ease;
 }
 
 .mp {
-  @apply text-center text-yellow-600;
+  font-size: 20px;
 
-  font-size: 60px;
+  /* font-size: 60px; */
 }
 
 .ppc input {
@@ -92,13 +137,18 @@ input {
 }
 
 .paymentSection {
-  @apply flex border border-yellow-700 w-4/5 m-auto justify-between p-2 mt-5;
-  height: 90vh;
-  margin-bottom: 20px;
+  /* @apply flex border border-yellow-700 m-auto justify-between p-2; */
+  display: flex;
+  height: 40vh;
+  margin: auto;
+  width: 60vw;
+  margin-bottom: 20rem;
 }
 
 .paymentSection img {
   width: 50%;
+  object-fit: cover;
+  height: auto;
 }
 
 .success {
@@ -492,4 +542,16 @@ textarea {
   .detailsSection {
     width: 100%;
   }
+}
+
+.socialIcons {
+  display: flex;
+  color: #fff;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.socialIcons > :hover {
+  color: #ec930c;
+  cursor: pointer;
 }

@@ -23,7 +23,9 @@ export const Checkout = () => {
     setPurchaseFood(selectedFood);
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(meta);
     navigate("/success");
   };
 
