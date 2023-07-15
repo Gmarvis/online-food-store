@@ -35,30 +35,37 @@ export const LandingPage = () => {
   return (
     <>
       <Header />
-      <button className="sellingBtn" onClick={handlesetupShop}>
-        {sellerBtn}
-      </button>
+      <div className="pageWrapper" id="foodCards">
+        <h1>what we have</h1>
+        <button className="sellingBtn" onClick={handlesetupShop}>
+          {sellerBtn}
+        </button>
 
-      <div className="foodCards" id="foodCards">
-        {product?.map((foodItem) => {
-          const handDitails = () => {
-            navigate(`./products/${foodItem.name}`);
-          };
-          return (
-            <div key={foodItem.name} className="foodItem" onClick={handDitails}>
-              <img
-                src={foodItem.image}
-                alt={foodItem.name}
-                className="card h-24 items-center mx-auto"
-              />
+        <div className="foodCards">
+          {product?.map((foodItem) => {
+            const handDitails = () => {
+              navigate(`./products/${foodItem.name}`);
+            };
+            return (
+              <div
+                key={foodItem.name}
+                className="foodItem"
+                onClick={handDitails}
+              >
+                <img
+                  src={foodItem.image}
+                  alt={foodItem.name}
+                  className="card h-24 items-center mx-auto"
+                />
 
-              <div className="baseInfor">
-                <h3 className="fItern">{foodItem.name}</h3>
-                <span>${foodItem.price}</span>
+                <div className="baseInfor">
+                  <h3 className="fItern">{foodItem.name}</h3>
+                  <span>${foodItem.price}</span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <Footer />
     </>

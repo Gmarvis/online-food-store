@@ -22,16 +22,9 @@
   /* height: 50vh; */
 }
 
-/* .mainText {
-  @apply text-center text-white pt-20 pb-20;
-  text-transform: uppercase;
-  font-family: "Frijole", cursive;
-  font-size: 45px;
-} */
-
 .foodCards {
   @apply flex flex-wrap justify-center gap-5;
-  margin: 5rem 10px;
+  margin: 0 10px 5rem;
 }
 
 .foodItem {
@@ -263,14 +256,10 @@ textarea {
 
 .pageContainer {
   @apply h-full;
-  /* background-image: url(https://cdn.pixabay.com/photo/2016/03/02/20/13/grocery-1232944_1280.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* filter: blur(8px); */
-  /* z-index: -1; */
-
-  /* -webkit-filter: blur(8px); */
+  height: 100vh;
 }
 .signUpbtn {
   /* width: 100%; */
@@ -288,13 +277,13 @@ textarea {
 .subContainer {
   @apply m-auto border;
   display: flex;
-  margin-top: 20vh;
+  margin: 5% auto;
   background-color: #fff;
   width: fit-content;
   /* border-radius: 5px; */
   padding: 2px;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   z-index: 10;
 }
@@ -352,6 +341,89 @@ textarea {
   height: fit-content;
 }
 
+/* -----------------------buyers details form styles------------------------- */
+.formWrapper {
+  padding-top: 1rem;
+  height: auto;
+}
+
+.formik {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  height: auto;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+}
+.textHeader {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.textHeader h1 {
+  color: #ec930c;
+  font-size: 40px;
+}
+
+.textHeader p {
+  color: #091450;
+}
+
+.formik .btn {
+  background-color: #ec930c;
+  height: 40px;
+  width: 90%;
+  margin: auto;
+  color: #fff;
+  transition: 0.3s ease-in;
+}
+
+.formik .btn:hover {
+  border: 1px solid #091450;
+  background-color: transparent;
+  color: #091450;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 0 1.5rem 0;
+}
+
+.inputs {
+  width: 90%;
+  border-radius: 5px;
+  padding: 5px;
+  height: 50px;
+  font-size: 12px;
+
+  margin: auto;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  margin: 10px auto;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 770px) {
+  .formik {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    height: auto;
+    margin: 0 auto 2rem;
+    padding: 1rem;
+  }
+}
+
+/* --------------------------end of buyers details form styles----------------------------- */
+
 @media screen and (max-width: 654px) {
   .paymentSection img {
     display: none;
@@ -360,6 +432,10 @@ textarea {
   .paymentSection {
     text-align: center;
     width: 95%;
+  }
+
+  .field {
+    width: 100%;
   }
 
   .paymentBtn {
@@ -372,6 +448,9 @@ textarea {
   .paymentSection {
     height: 60vh;
   }
+
+  .field {
+  }
 }
 
 @media screen and (max-width: 495px) {
@@ -381,6 +460,10 @@ textarea {
 
   .subContainer img {
     display: none;
+  }
+
+  .adminForm {
+    width: 90vw;
   }
 }
 
@@ -439,6 +522,7 @@ textarea {
 .puchaseSection {
   padding: 10px 9%;
   /* height: ; */
+  height: auto;
 }
 
 .detailsCard {
@@ -555,3 +639,38 @@ textarea {
   color: #ec930c;
   cursor: pointer;
 }
+
+.pageWrapper {
+  text-align: center;
+}
+
+.pageWrapper h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #091450;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+/* ------------navbar style---------------------- */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  position: static;
+  background-color: #091450;
+  /* width: 100vw; */
+}
+
+.logo {
+  height: auto;
+  margin: auto 0;
+}
+
+.navBar ul {
+  color: #ec930c;
+  height: auto;
+  margin: auto 0;
+}
+
+/* ------------navbar style end---------------------- */

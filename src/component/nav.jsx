@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
-    <nav className="navBar flex justify-between text-center  pt-3 bg-yellow-700 h-12 text-white px-4 align-middle">
+    <nav className="navBar">
       <h1 className="logo">FOODY</h1>
       <ul className="links flex content-evenly gap-5">
         <li className="links hover:underline">
