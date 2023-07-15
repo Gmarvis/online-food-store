@@ -28,24 +28,26 @@ export const Product = () => {
 
   return (
     <>
-      <div className="pDetail border mt-5 border-yellow-700 p-2 w-fit m-auto">
-        <h1 className="hd text-xl text-yellow-700">Food Details</h1>
-        <div>
-          <img
-            className="fdetails w-80 "
-            src={foodDetail.image}
-            alt={foodDetail.name}
-          />
-          <h1>{foodDetail.name}</h1>
-          <p>{foodDetail.detials}</p>
-          <span>${foodDetail.price}</span>
-          <br></br>
-          <button
-            className="btn border border-yellow-700 rounded p-1 text-yellow-700 bg-white"
-            onClick={handlePurcase}
-          >
-            Purchase
-          </button>
+      <div className="puchaseSection">
+        <div className="detailsCard">
+          <div className="detailPicture">
+            <img
+              className="fdetails w-80 "
+              src={foodDetail.image}
+              alt={foodDetail.name}
+            />
+          </div>
+
+          <div className="detailsSection">
+            <h1>{foodDetail.name}</h1>
+            <p>{foodDetail.detials}</p>
+            <div className="priceAndBtn">
+              <button className="btn" onClick={handlePurcase}>
+                Buy now
+              </button>
+              <span>{`price $${foodDetail.price}`}</span>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

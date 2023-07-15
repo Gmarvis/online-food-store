@@ -386,6 +386,82 @@ textarea {
   color: #b37709;
 }
 
+.puchaseSection {
+  padding: 10px 9%;
+  /* height: ; */
+}
+
+.detailsCard {
+  display: flex;
+  height: auto;
+  margin: 55px auto;
+  width: 70%;
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.detailPicture {
+  width: 40%;
+  /* background-color: cyan; */
+}
+
+.detailPicture img {
+  object-fit: cover;
+  width: fit-content;
+  height: 100%;
+  margin: auto;
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: auto;
+  justify-content: space-between;
+  padding: 10px 5px;
+}
+
+.detailsSection h1 {
+  font-size: 24px;
+  color: #ec930c;
+  font-weight: lighter;
+  text-transform: capitalize;
+  text-decoration: wavy;
+}
+
+.detailsSection .btn {
+  box-shadow: rgba(168, 126, 8, 0.25) 0px 4px 8px -2px,
+    rgba(160, 92, 15, 0.08) 0px 0px 0px 1px;
+  padding: 3px 10px;
+  font-weight: 600;
+  background-color: #ec930c;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.detailsSection p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 200;
+  color: #2c210c;
+}
+
+.priceAndBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceAndBtn span {
+  height: auto;
+  margin: auto 0;
+  color: #b37709;
+}
+.detailsSection .btn:hover {
+  color: #ec930c;
+  background-color: transparent;
+  border: 1px solid #ec930c;
+}
+
 @media screen and (max-width: 770px) {
   .admin-dashboard {
     display: block;
@@ -401,5 +477,19 @@ textarea {
 
   .addProductForm {
     width: 90vw;
+  }
+
+  .detailsCard {
+    display: block;
+    width: 100%;
+  }
+
+  .detailPicture {
+    width: 100%;
+    /* background-color: cyan; */
+  }
+
+  .detailsSection {
+    width: 100%;
   }
 }
