@@ -56,7 +56,7 @@ export const Admin = () => {
   const clearForm = (event) => {
     const { image } = event.target;
     // console.clear();
-    console.log(event);
+    // console.log(event);
     image.value = "";
     setProductData({
       name: "",
@@ -77,10 +77,6 @@ export const Admin = () => {
       alert("inconplete form");
       return;
     }
-
-    // handle delete
-    console.clear();
-    console.log(productData);
 
     setValue(productData);
     setProductData({
@@ -103,6 +99,18 @@ export const Admin = () => {
 
     localStorage.setItem("foodItems", JSON.stringify(update));
     setValue("");
+  };
+
+  const handleEditClick = (name) => {
+    setShowAddForm((prev) => !prev);
+    const foodToEdit = value.find((food) => food.name === name);
+    console.log("this is the food iterm to be edited", foodToEdit);
+    setProductData({
+      name: foodToEdit.name,
+      price: foodToEdit.price,
+      image: foodToEdit.image,
+      detials: foodToEdit.detials,
+    });
   };
 
   const adminData = JSON.parse(localStorage.getItem("adminData"));
@@ -301,7 +309,10 @@ export const Admin = () => {
                         onClick={() => handleDelete(foodItem.name)}
                         className="updateIcons"
                       />
-                      <FiEdit className="updateIcons" />
+                      <FiEdit
+                        onClick={() => handleEditClick(foodItem.name)}
+                        className="updateIcons"
+                      />
                     </div>
                   </div>
                 );

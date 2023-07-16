@@ -284,6 +284,8 @@ input {
   padding: 5px 0;
   justify-content: space-between;
 }
+
+
 .updateIcons:hover {
   cursor: pointer;
   color: #ec930c;
