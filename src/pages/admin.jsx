@@ -111,11 +111,23 @@ export const Admin = () => {
       image: foodToEdit.image,
       detials: foodToEdit.detials,
     });
+
+    const localData = JSON.parse(localStorage.getItem("foodItems"));
+
+    let foodIndex = localData.findIndex((elem) => elem.name === name);
+
+    let newLocal = localData.filter((elem) => elem.name !== name);
+    newLocal = [...localData];
+    newLocal.slice(foodIndex, 0, foodToEdit);
+
+    localStorage.setItem("foodItems", JSON.stringify(newLocal));
+    console.clear();
+    console.log(foodIndex);
   };
 
   const adminData = JSON.parse(localStorage.getItem("adminData"));
-  console.clear();
-  console.log(adminData);
+  // console.clear();
+  // console.log(adminData);
 
   return (
     <>
@@ -286,7 +298,7 @@ export const Admin = () => {
                 // handle click navigation to product detail page.
 
                 return (
-                  <div key={foodItem.name} className=" displayFood">
+                  <div key={foodItem.name} className="displayFood">
                     <img
                       src={foodItem.image}
                       alt={foodItem.name}
@@ -301,17 +313,13 @@ export const Admin = () => {
                     </div>
 
                     <div className="updateBtn">
-                      {/* <button
-                        className="deleteBtn"
-                        onClick={() => handleDelete(foodItem.name)}
-                      ></button> */}
                       <FaTrashAlt
                         onClick={() => handleDelete(foodItem.name)}
                         className="updateIcons"
                       />
                       <FiEdit
                         onClick={() => handleEditClick(foodItem.name)}
-                        className="updateIcons"
+                        className="updateIcons edit"
                       />
                     </div>
                   </div>

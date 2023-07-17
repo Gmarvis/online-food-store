@@ -9,7 +9,7 @@ export const AcountLogin = () => {
   });
 
   const activeUser = JSON.parse(localStorage.getItem("adminData"));
-  console.log(activeUser);
+  // console.log(activeUser);
 
   const navigate = useNavigate();
 
