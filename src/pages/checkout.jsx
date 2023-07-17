@@ -12,6 +12,7 @@ import { Footer } from "../component/footer/footer";
 export const Checkout = () => {
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } =
     usePaymentInputs();
+
   const navigate = useNavigate();
   const [purchaseFood, setPurchaseFood] = useState({});
   const { value } = useFooditerms();
@@ -41,7 +42,7 @@ export const Checkout = () => {
               getExpiryDateProps,
               getCVCProps,
             }) => (
-              <form className="ppc">
+              <div className="ppc">
                 <input {...getCardNumberProps({})} />
 
                 <input {...getExpiryDateProps({})} />
@@ -59,7 +60,7 @@ export const Checkout = () => {
                 <button onClick={handleSubmit} className="paymentBtn">
                   PAY
                 </button>
-              </form>
+              </div>
             )}
           </PaymentInputsContainer>
         </div>

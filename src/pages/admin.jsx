@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FoodContext } from "../component/context";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Footer } from "../component/footer/footer";
+import { FaTrashAlt } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 
 export const Admin = () => {
   const { value, setValue } = useContext(FoodContext);
@@ -54,7 +56,7 @@ export const Admin = () => {
   const clearForm = (event) => {
     const { image } = event.target;
     // console.clear();
-    console.log(event);
+    // console.log(event);
     image.value = "";
     setProductData({
       name: "",
@@ -75,10 +77,6 @@ export const Admin = () => {
       alert("inconplete form");
       return;
     }
-
-    // handle delete
-    console.clear();
-    console.log(productData);
 
     setValue(productData);
     setProductData({
@@ -103,9 +101,33 @@ export const Admin = () => {
     setValue("");
   };
 
+  const handleEditClick = (name) => {
+    setShowAddForm((prev) => !prev);
+    const foodToEdit = value.find((food) => food.name === name);
+    console.log("this is the food iterm to be edited", foodToEdit);
+    setProductData({
+      name: foodToEdit.name,
+      price: foodToEdit.price,
+      image: foodToEdit.image,
+      detials: foodToEdit.detials,
+    });
+
+    const localData = JSON.parse(localStorage.getItem("foodItems"));
+
+    let foodIndex = localData.findIndex((elem) => elem.name === name);
+
+    let newLocal = localData.filter((elem) => elem.name !== name);
+    newLocal = [...localData];
+    newLocal.slice(foodIndex, 0, foodToEdit);
+
+    localStorage.setItem("foodItems", JSON.stringify(newLocal));
+    console.clear();
+    console.log(foodIndex);
+  };
+
   const adminData = JSON.parse(localStorage.getItem("adminData"));
-  console.clear();
-  console.log(adminData);
+  // console.clear();
+  // console.log(adminData);
 
   return (
     <>
@@ -200,7 +222,7 @@ export const Admin = () => {
               </div>
             </div>
           )}
-          <button className="logoutBtn">Logout</button>
+          {/* <button className="logoutBtn">Logout</button> */}
         </div>
 
         <div className="dashboard">
@@ -271,29 +293,34 @@ export const Admin = () => {
             </form>
           )}
           <>
-            <div className="foodCards ">
+            <div className=" adminCards">
               {value?.map((foodItem) => {
                 // handle click navigation to product detail page.
 
                 return (
-                  <div
-                    key={foodItem.name}
-                    className="foodItem border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"
-                  >
+                  <div key={foodItem.name} className="displayFood">
                     <img
                       src={foodItem.image}
                       alt={foodItem.name}
-                      className="card h-24 items-center mx-auto"
+                      // className="card "
                     />
-                    <h3 className="fItern text-yellow-600">{foodItem.name}</h3>
-                    <span>${foodItem.price}</span>
-                    <div className="flex  justify-start">
-                      <button
-                        className="cardBtn  bg-yellow-800 text-white"
+
+                    <div className="priceArea">
+                      <h3 className="fItern text-yellow-600">
+                        {foodItem.name}
+                      </h3>
+                      <span>${foodItem.price}</span>
+                    </div>
+
+                    <div className="updateBtn">
+                      <FaTrashAlt
                         onClick={() => handleDelete(foodItem.name)}
-                      >
-                        Delete
-                      </button>
+                        className="updateIcons"
+                      />
+                      <FiEdit
+                        onClick={() => handleEditClick(foodItem.name)}
+                        className="updateIcons edit"
+                      />
                     </div>
                   </div>
                 );
