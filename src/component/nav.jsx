@@ -27,12 +27,12 @@ export const Nav = () => {
             <i class="fa-solid fa-user"></i>
           </Link>
         </li>
-        <li className="links hover:underline">
+        {/* <li className="links hover:underline">
           {" "}
           <Link to="/checkout">
             <i class="fa-solid fa-cart-shopping"></i>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
