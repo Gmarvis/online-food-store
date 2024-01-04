@@ -30,13 +30,13 @@ export const LandingPage = () => {
   useEffect(() => {
     setProduct(value);
     sellerText();
-  }, []);
+  }, [value]);
 
   return (
     <>
       <Header />
       <div className="pageWrapper" id="foodCards">
-        <h1>what we have</h1>
+        <h1>what we have...!</h1>
         <button className="sellingBtn" onClick={handlesetupShop}>
           {sellerBtn}
         </button>

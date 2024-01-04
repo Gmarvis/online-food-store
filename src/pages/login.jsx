@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import { useParams } from "react-router-dom";
 // import { useFormik } from "formik";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -8,9 +8,9 @@ import { Footer } from "../component/footer/footer";
 // import * as Yup from 'yup';
 
 export function Login() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("userData"))
-  );
+  // const [user, setUser] = useState(
+  //   JSON.parse(localStorage.getItem("userData"))
+  // );
   const navigate = useNavigate();
   const params = useParams();
 
@@ -105,8 +105,8 @@ export function Login() {
             </button>
           </Form>
         </Formik>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }
